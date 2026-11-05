@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#faf6ea">
+<meta name="description" content="TrueFinds.pk — kitchen essentials, organizers, home decor, kids & baby care and everyday gadgets. Cash on delivery across Pakistan.">
+<title>TrueFinds — Small Finds. Big Difference.</title>
+<link rel="icon" href="images/truefinds-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf6ea;--sand:#f1ecdc;--surface:#fff;--green:#0e4a38;--green2:#1d6a50;--lime:#8cc63f;--limeText:#587f1c;--limeSoft:#e9f3d3;--orange:#f08a1c;--ink:#14221c;--muted:#66736b;--line:#e4dfcd;--r:18px;--ann:34px;--nav:58px;--hh:calc(var(--ann) + var(--nav));--head:'Outfit',system-ui,sans-serif;--body:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0}img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--green);outline-offset:2px;border-radius:6px}
+.container{width:min(1240px,92%);margin-inline:auto}
+svg.i{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+h1,h2,h3,h4{font-family:var(--head);letter-spacing:-.02em;line-height:1.15;color:var(--green);font-weight:500}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ===== Header ===== */
+.site-head{position:fixed;inset:0 0 auto 0;z-index:60;transition:transform .35s ease,background .3s,box-shadow .3s}
+.site-head.hide{transform:translateY(-100%)}
+.ann{height:var(--ann);transition:height .35s ease;background:var(--green);color:#fff;overflow:hidden;display:flex;align-items:center;font-size:12px;font-weight:500}
+.ann-track{display:flex;width:max-content;white-space:nowrap;animation:marq 42s linear infinite}
+.ann-track span{display:inline-flex;align-items:center;gap:8px;padding-right:56px}.ann-track b{color:var(--lime);font-weight:600}
+@keyframes marq{to{transform:translateX(-25%)}}
+.site-head.ann-off .ann{height:0}
+.nav-wrap{height:var(--nav);transition:background .3s,box-shadow .3s,backdrop-filter .3s}
+.site-head.scrolled .nav-wrap{background:rgba(250,246,234,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo img{height:36px;width:auto;transition:opacity .3s}
+.nav-links{display:flex;gap:6px}
+.nav-links a{padding:9px 14px;border-radius:30px;font-weight:600;font-size:14px;color:var(--green);transition:background .2s}
+.nav-links a:hover,.nav-links a.on{background:rgba(140,198,63,.28)}
+.nav-actions{display:flex;gap:6px;align-items:center}
+.ib{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:var(--green);position:relative;font-size:21px;transition:background .2s}
+.ib:hover{background:rgba(140,198,63,.28)}
+.badge{position:absolute;top:3px;right:2px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:var(--green);color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center;font-family:var(--body)}
+.badge:empty,.badge[data-n="0"]{display:none}
+.menu-btn{display:none}
+
+/* ===== Buttons ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:30px;font-weight:700;font-size:14px;transition:transform .2s,background .2s,box-shadow .2s;border:1.5px solid transparent;white-space:nowrap}
+.btn-p{background:var(--green);color:#fff}.btn-p:hover{background:var(--green2);transform:translateY(-1px)}
+.btn-l{background:var(--lime);color:var(--green)}.btn-l:hover{background:#9bd44b}
+.btn-o{border-color:var(--green);color:var(--green)}.btn-o:hover{background:var(--green);color:#fff}
+.btn-w{background:#25d366;color:#fff}.btn-w:hover{background:#1fb858}
+.btn[disabled]{opacity:.5;pointer-events:none}
+.btn-sm{min-height:40px;padding:0 18px;font-size:13px}
+
+/* ===== Hero ===== */
+main{min-height:70vh}
+body:not(.is-home) main{padding-top:calc(var(--nav) + 26px)}
+.hero{position:relative;overflow:hidden;background:#e4d9cd}
+.slides{display:flex;transition:transform .7s cubic-bezier(.6,.05,.2,1);touch-action:pan-y}
+.slide{min-width:100%;display:block}
+.slide img{width:100%;height:auto}
+.hero-m{display:none}
+.dots{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.dots button{width:9px;height:9px;border-radius:5px;background:rgba(14,74,56,.3);transition:.3s;padding:0}
+.dots button.on{width:26px;background:var(--green)}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:22px 0;border-bottom:1px solid var(--line)}
+.trust div{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;color:var(--green);line-height:1.3}
+.trust small{display:block;color:var(--muted);font-weight:400;font-size:12px}
+.trust .ico{width:42px;height:42px;border-radius:50%;background:var(--limeSoft);display:grid;place-items:center;font-size:20px;flex-shrink:0}
+
+/* ===== Sections ===== */
+.section{padding:64px 0 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px}
+.sec-head h2{font-size:clamp(28px,3.4vw,40px);font-weight:500}.kicker{display:block;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--limeText);margin-bottom:10px}
+.sec-head p{color:var(--muted);margin-top:6px;font-size:15px}
+.link{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:14px;color:var(--green);border-bottom:2px solid var(--lime);padding-bottom:3px;white-space:nowrap}
+.link:hover{color:var(--limeText)}
+
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.cat{position:relative;grid-column:span 3;min-height:250px;border-radius:var(--r);overflow:hidden;isolation:isolate;background:var(--sand)}
+.cat.lg{grid-column:span 6;min-height:340px}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s}
+.cat:hover img{transform:scale(1.05)}
+.cat:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(8,40,30,.82),rgba(8,40,30,0) 62%)}
+.cat-t{position:absolute;left:22px;right:70px;bottom:20px;color:#fff}
+.cat-t h3{color:#fff;font-size:24px;font-weight:500}.cat-t p{font-size:13px;opacity:.85;margin-top:4px}
+.cat-go{position:absolute;right:16px;bottom:18px;width:32px;height:32px;border-radius:50%;background:#fff;color:var(--green);display:grid;place-items:center;font-size:15px}
+
+
+/* product grid + card */
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 18px}
+.pc{position:relative;min-width:0}
+.pc-media{position:relative;border-radius:16px;overflow:hidden;background:var(--sand);aspect-ratio:1/1}
+.pc-media>a{display:block;height:100%}
+.pc-media img{width:100%;height:100%;object-fit:cover;transition:opacity .4s,transform .6s}
+.pc-media img.alt{position:absolute;inset:0;opacity:0}
+.pc:hover .pc-media img.alt{opacity:1}.pc:hover .pc-media img{transform:scale(1.04)}
+.tag{position:absolute;top:10px;left:10px;background:var(--lime);color:var(--green);font-size:11px;font-weight:700;border-radius:20px;padding:4px 10px;z-index:2}
+.tag.out{background:var(--ink);color:#fff}
+.wish,.qadd{position:absolute;z-index:2;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:19px;transition:.2s}
+.wish{top:8px;right:8px;background:rgba(255,255,255,.95);color:var(--green)}
+.wish.on{color:#d93a4c}.wish.on svg{fill:#d93a4c}
+.qadd{right:8px;bottom:8px;background:var(--green);color:#fff;box-shadow:0 4px 14px rgba(14,74,56,.3)}
+.qadd:hover{background:var(--green2);transform:scale(1.08)}
+.qadd[disabled]{background:#b9bfb9;pointer-events:none}
+.pc-info{padding:12px 2px 0}
+.pc-cat{font-size:12px;color:var(--muted)}
+.pc-info h3{font-family:var(--body);font-size:14.5px;font-weight:600;color:var(--ink);letter-spacing:0;line-height:1.4;margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:40px}
+.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin-top:6px}
+.price b{font-family:var(--head);font-size:17px;color:var(--green);font-weight:600}
+.price s{color:#9aa39c;font-size:13px}.price em{font-style:normal;font-size:12px;font-weight:700;color:#c25f00}
+
+/* feature (home decor) */
+.feature{display:grid;grid-template-columns:1fr 1fr;background:var(--green);border-radius:26px;overflow:hidden;margin-bottom:28px}
+.feature-c{padding:52px;align-self:center;color:#fff}
+.feature-c h2{color:#fff;font-size:clamp(30px,3.6vw,44px)}
+.feature-c p{color:#cfe0d3;margin:14px 0 26px;max-width:380px}
+.feature-i{min-height:330px;position:relative}
+.feature-i img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.small-note{font-size:13px;color:var(--lime);font-weight:600;margin-bottom:10px}
+
+/* cta band + newsletter */
+.band{display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--limeSoft);border-radius:24px;padding:36px 44px}
+.band h2{font-size:clamp(24px,3vw,32px)}.band p{color:#3f5a35;margin-top:6px}
+.nl{display:flex;gap:6px;background:#fff;padding:6px;border-radius:40px;width:min(440px,100%)}
+.nl input{flex:1;min-width:0;border:0;outline:0;padding:0 16px;background:none;font-size:14px;color:var(--ink)}.nl input::placeholder{color:#8a948d}
+
+/* deco promo */
+.deco{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:20px;background:linear-gradient(120deg,#f4ead6,#f9f1e1 60%,#efe3c9);border-radius:30px;padding:56px 56px 56px 60px;overflow:hidden;align-items:center}
+.deco:before{content:"";position:absolute;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(140,198,63,.3),transparent 70%);left:-130px;bottom:-170px}
+.deco-c{position:relative}
+.deco-tag{display:inline-block;background:#fff;border-radius:30px;padding:7px 14px;font-size:12.5px;font-weight:600;color:var(--limeText)}
+.deco h2{font-size:clamp(30px,3.8vw,48px);margin:18px 0 14px;max-width:460px}
+.deco p{color:#5b6a60;max-width:420px}
+.deco-chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 28px}
+.deco-chips a{border:1.5px solid rgba(14,74,56,.25);border-radius:30px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--green);transition:.2s}.deco-chips a:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.deco-i{position:relative;display:flex;justify-content:center;min-height:400px;align-items:center}
+.arch{position:relative;width:min(340px,100%);aspect-ratio:4/5;border-radius:999px 999px 26px 26px;overflow:hidden;box-shadow:0 30px 60px rgba(120,90,30,.25);animation:float 7s ease-in-out infinite}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:38% 50%}
+.blob{position:absolute;width:330px;height:330px;border-radius:50%;border:2px dashed rgba(14,74,56,.25);top:0;right:2%;animation:spin 40s linear infinite}
+.deco-card{position:absolute;left:0;bottom:34px;display:flex;align-items:center;gap:12px;background:#fff;border-radius:18px;padding:10px 16px 10px 10px;box-shadow:0 14px 34px rgba(0,0,0,.15);max-width:250px;animation:float 6s ease-in-out -2s infinite}
+.deco-card img{width:52px;height:52px;border-radius:12px;object-fit:cover}.deco-card small{display:block;color:var(--muted);font-size:11px}.deco-card b{display:block;font-size:13px;line-height:1.3;color:var(--ink);font-weight:600}.deco-card i{font-style:normal;font-family:var(--head);color:var(--green);font-weight:600;font-size:14px}
+@keyframes float{50%{transform:translateY(-10px)}}@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:900px){.deco{grid-template-columns:1fr;padding:32px 22px;border-radius:24px}.deco-i{min-height:360px}.deco-card{left:-4px}}
+/* alive: reveal, parallax, progress */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.pc-media{transition:transform .4s,box-shadow .4s}.pc:hover .pc-media{transform:translateY(-4px);box-shadow:0 16px 32px rgba(14,74,56,.15)}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--lime),var(--green));z-index:110;pointer-events:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
+/* search suggestions + reviews */
+.s-h{font-size:12px;color:var(--muted);margin:14px 0 4px;font-weight:600;letter-spacing:.04em}
+.s-sug a{display:flex;align-items:center;gap:12px;padding:10px 2px;color:var(--ink);font-size:15px;border-bottom:1px solid var(--line)}.s-sug a svg{color:var(--muted);font-size:17px}.s-sug b{font-weight:700;color:var(--green)}
+.s-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.stars{display:inline-flex;gap:2px;color:#f2a516}.stars svg{width:17px;height:17px;fill:currentColor;stroke:none}.stars .off{color:#dcd6c3}
+.rv{display:grid;grid-template-columns:250px minmax(0,1fr);gap:34px;align-items:center}
+.rv-sum .big{font-family:var(--head);font-size:68px;font-weight:500;color:var(--green);line-height:1;display:block;margin:12px 0 6px}
+.rv-sum p{color:var(--muted);font-size:14px}
+.rv-arrows{display:flex;gap:10px;margin-top:22px}
+.rv-arrows button{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--green);color:var(--green);display:grid;place-items:center;font-size:20px;transition:.2s}.rv-arrows button:hover{background:var(--green);color:#fff}
+.rv-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 2px}.rv-track::-webkit-scrollbar{display:none}
+.rev{flex:0 0 min(320px,82%);scroll-snap-align:start;scroll-snap-stop:always;background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.rev-h{display:flex;align-items:center;gap:12px}.rev-h b{display:block;font-size:14px;color:var(--ink)}.rev-h small{color:var(--muted);font-size:12px}
+.av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:13px;color:var(--green);flex-shrink:0}
+.rev p{color:#33443a;font-size:14.5px;flex:1}
+.rev-p{display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:12px;padding:8px;font-size:12.5px;font-weight:600;color:var(--green);line-height:1.3}.rev-p img{width:38px;height:38px;border-radius:8px;object-fit:cover;flex-shrink:0}
+.rev .when{color:var(--muted);font-size:12px}
+@media(max-width:720px){.rv{grid-template-columns:1fr;gap:20px}.rv-sum{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.rv-sum .big{font-size:52px;margin:0}.rv-arrows{margin:0 0 0 auto}}
+/* ===== Footer ===== */
+footer{margin-top:80px;background:var(--sand);border-top:1px solid var(--line)}
+.f-main{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding:56px 0 40px}
+.f-main img{height:50px;width:auto}
+.f-about p{color:var(--muted);font-size:14px;max-width:290px;margin-top:16px}
+.soc{display:flex;gap:10px;margin-top:20px}
+.soc a{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--green);color:var(--green);display:grid;place-items:center;font-size:18px;transition:.2s}
+.soc a:hover{background:var(--green);color:#fff}
+.f-col h4{font-size:15px;margin-bottom:16px}
+.f-col a{display:block;font-size:14px;color:var(--muted);padding:5px 0}.f-col a:hover{color:var(--green)}
+.f-bottom{border-top:1px solid var(--line);padding:20px 0;text-align:center;font-size:13px;color:var(--muted)}
+
+/* ===== Page UI ===== */
+.crumbs{font-size:13px;color:var(--muted);margin-bottom:18px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.crumbs a:hover{color:var(--green);text-decoration:underline}
+.page-head{background:var(--green);color:#fff;border-radius:24px;padding:40px;margin-bottom:26px;position:relative;overflow:hidden;min-height:170px;display:flex;flex-direction:column;justify-content:center}
+.page-head h1{color:#fff;font-size:clamp(30px,4vw,46px)}.page-head p{color:#cfe0d3;margin-top:8px;max-width:520px}
+.page-head img{position:absolute;right:0;top:0;height:100%;width:42%;object-fit:cover;opacity:.9;-webkit-mask-image:linear-gradient(90deg,transparent,#000 55%);mask-image:linear-gradient(90deg,transparent,#000 55%)}
+.page-head>div{position:relative}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;padding:9px 16px;border-radius:30px;border:1.5px solid var(--line);font-weight:600;font-size:13px;background:#fff;color:var(--green)}
+.chip:hover,.chip.on{background:var(--green);border-color:var(--green);color:#fff}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:22px;color:var(--muted);font-size:14px}
+.toolbar .ctl{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.sel{height:42px;border:1.5px solid var(--line);border-radius:30px;padding:0 16px;background:#fff;font-weight:600;font-size:13px;color:var(--green)}
+.chk{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--green);font-size:13px;cursor:pointer}
+.chk input{accent-color:var(--green);width:17px;height:17px}
+.empty{text-align:center;padding:70px 20px;color:var(--muted)}
+.empty .big{font-size:46px;color:var(--lime);display:inline-block;margin-bottom:10px}
+.empty h2{font-size:26px;margin-bottom:8px}.empty .btn{margin-top:20px}
+
+/* product page */
+.pdp{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:48px;align-items:start}
+.pdp>*,.co>*{min-width:0}.gal{position:sticky;top:calc(var(--hh) + 16px)}
+.gal-main{border-radius:20px;overflow:hidden;background:var(--sand);aspect-ratio:1/1;position:relative}
+.gal-main img{width:100%;height:100%;object-fit:cover}.gal-main .wish{top:14px;right:14px;width:46px;height:46px;font-size:22px;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.thumbs{display:flex;gap:10px;margin-top:12px;overflow-x:auto}
+.thumbs button{width:76px;height:76px;border-radius:12px;overflow:hidden;border:2px solid transparent;flex-shrink:0;background:var(--sand)}
+.thumbs button.on{border-color:var(--green)}.thumbs img{width:100%;height:100%;object-fit:cover}
+.pdp h1{font-size:clamp(25px,3vw,34px);font-weight:500;line-height:1.2}
+.sub{color:var(--muted);margin-top:8px}
+.pdp .price{margin:18px 0 6px}.pdp .price b{font-size:30px}.pdp .price s{font-size:17px}.pdp .price em{font-size:13px;background:#fff0dc;padding:4px 10px;border-radius:20px}
+.stock{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--limeText)}.stock:before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}.stock.out{color:#b3382c}
+.field{margin-top:18px}.field label{display:block;font-weight:600;font-size:13px;margin-bottom:6px;color:var(--green)}
+.field input,.field textarea,.field select{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;background:#fff;outline:0;font-size:15px}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--green)}
+.field .err{color:#b3382c;font-size:12px;margin-top:4px;display:none}.field.bad input,.field.bad textarea{border-color:#b3382c}.field.bad .err{display:block}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:30px;background:#fff;height:48px}
+.qty button{width:44px;height:100%;display:grid;place-items:center;color:var(--green)}.qty span{min-width:30px;text-align:center;font-weight:700}
+.buy{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;align-items:center}
+.buy .btn-p,.buy .btn-l{flex:1;min-width:150px}
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+.perks div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 8px;text-align:center;font-size:12px;font-weight:600;color:var(--green);line-height:1.3}
+.perks svg{font-size:23px;display:block;margin:0 auto 6px;color:var(--green2)}
+.acc{margin-top:26px;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;padding:16px 0;font-weight:600;color:var(--green);display:flex;justify-content:space-between;align-items:center}
+.acc summary::-webkit-details-marker{display:none}.acc summary:after{content:"+";font-size:22px;color:var(--limeText);font-weight:500}
+.acc details[open] summary:after{content:"–"}
+.acc .a{padding:0 0 16px;color:var(--muted);font-size:14px}
+.sticky-buy{display:none}
+
+/* drawer / overlays */
+.scrim{position:fixed;inset:0;background:rgba(10,30,22,.45);z-index:80;opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(430px,100%);background:var(--bg);z-index:90;transform:translateX(105%);transition:transform .38s cubic-bezier(.3,.8,.3,1);display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.12)}
+.drawer.on{transform:none}
+.dr-h{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.dr-h h3{font-size:20px}
+.dr-b{flex:1;overflow-y:auto;padding:8px 20px}
+.dr-f{padding:16px 20px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:#fff}
+.ship-bar{padding:14px 20px;background:var(--limeSoft);font-size:13px;font-weight:600;color:var(--green)}
+.ship-bar i{display:block;height:6px;border-radius:4px;background:#fff;margin-top:8px;overflow:hidden}.ship-bar i b{display:block;height:100%;background:var(--green);border-radius:4px;transition:width .4s}
+.ci{display:grid;grid-template-columns:76px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.ci img{width:76px;height:76px;border-radius:12px;object-fit:cover;background:var(--sand)}
+.ci h4{font-family:var(--body);font-size:14px;font-weight:600;color:var(--ink);letter-spacing:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ci .note{font-size:12px;color:var(--muted)}
+.ci-r{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.ci .qty{height:36px}.ci .qty button{width:32px}
+.rm{color:var(--muted);font-size:18px;padding:6px}.rm:hover{color:#b3382c}
+.row{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font-size:14px}
+.row.t{font-family:var(--head);font-weight:700;font-size:20px;color:var(--green);padding-top:12px;margin-top:6px;border-top:1px solid var(--line)}
+.search{position:fixed;inset:0 0 auto 0;z-index:95;background:var(--bg);transform:translateY(-105%);transition:transform .35s;box-shadow:0 20px 50px rgba(0,0,0,.15);height:100vh;height:100dvh;overflow-y:auto}
+.search{visibility:hidden;transition:transform .35s,visibility 0s .35s}.search.on{transform:none;visibility:visible;transition:transform .35s}
+.s-in{display:flex;align-items:center;gap:12px;padding:18px 0;border-bottom:1px solid var(--line)}
+#s-input::-webkit-search-cancel-button{display:none}.s-in input{flex:1;border:0;outline:0;background:none;font-size:20px;font-family:var(--head);font-weight:500;min-width:0}
+.s-res{padding:12px 0 24px}
+.s-r{display:grid;grid-template-columns:54px 1fr auto;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.s-r img{width:54px;height:54px;border-radius:10px;object-fit:cover}.s-r span{font-weight:600;font-size:14px;line-height:1.35}.s-r b{color:var(--green);font-family:var(--head)}
+.mmenu{position:fixed;top:0;left:0;bottom:0;width:min(330px,88%);background:var(--bg);z-index:90;transform:translateX(-105%);transition:transform .35s;padding:22px;overflow-y:auto}
+.mmenu.on{transform:none}
+.mmenu a{display:block;padding:13px 4px;font-weight:600;font-size:17px;color:var(--green);border-bottom:1px solid var(--line)}
+.mmenu .sm a{font-size:14px;font-weight:500;color:var(--muted);padding:9px 4px;border:0}
+.toast{position:fixed;left:50%;bottom:30px;z-index:120;transform:translate(-50%,24px);opacity:0;pointer-events:none;background:var(--ink);color:#fff;padding:13px 20px;border-radius:30px;font-size:14px;font-weight:600;transition:.3s;display:flex;gap:12px;align-items:center;max-width:92vw}
+.toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}.toast a,.toast button{color:var(--lime);font-weight:700}
+
+/* checkout + forms */
+.co{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:start}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px}
+.card h2,.card h3{font-size:21px;margin-bottom:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pay{display:grid;gap:10px;margin-top:12px}
+.pay label{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;background:#fff}
+.pay label:has(input:checked){border-color:var(--green);background:var(--limeSoft)}
+.pay input{accent-color:var(--green);margin-top:4px}.pay small{display:block;color:var(--muted)}
+.sum-i{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:10px 0}
+.sum-i img{width:56px;height:56px;border-radius:10px;object-fit:cover;position:relative}
+.sum-i span{font-size:13px;font-weight:600;line-height:1.35}.sum-i small{display:block;font-weight:400;color:var(--muted)}
+.co-main section+section{margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}.co-main h2{font-size:20px;margin-bottom:12px}
+.help{font-size:12.5px;color:var(--muted);margin-top:6px}
+.chk2{display:flex;gap:10px;align-items:center;margin-top:14px;font-size:14px;cursor:pointer}.chk2 input{accent-color:var(--green);width:17px;height:17px}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1.5px solid var(--green);background:var(--limeSoft);border-radius:14px;padding:16px}.opt small{display:block;color:var(--muted)}
+.pay-d{display:none;background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:-4px;font-size:13.5px;color:#3a4a41}.pay label:has(input:checked)+.pay-d{display:block}
+.ok{text-align:center;max-width:620px;margin:0 auto}
+.ok .tick{width:78px;height:78px;border-radius:50%;background:var(--lime);color:var(--green);display:grid;place-items:center;font-size:38px;margin:0 auto 18px}
+.ok h1{font-size:34px}.ok .card{text-align:left;margin-top:24px}
+.ord{border:1px solid var(--line);background:#fff;border-radius:18px;padding:20px;margin-bottom:14px}
+.ord-h{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:14px;color:var(--muted);margin-bottom:10px}.ord-h b{color:var(--green);font-family:var(--head);font-size:17px}
+.pill{background:var(--limeSoft);color:var(--limeText);padding:3px 12px;border-radius:20px;font-weight:700;font-size:12px}
+.prose{max-width:780px}.prose h2{font-size:24px;margin:30px 0 10px}.prose p,.prose li{color:#3a4a41;margin-bottom:10px}.prose ul{padding-left:20px}
+.tbl{width:100%;border-collapse:collapse;margin:14px 0;background:#fff;border-radius:14px;overflow:hidden}.tbl th,.tbl td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:14px}.tbl th{background:var(--limeSoft);color:var(--green)}
+.steps{counter-reset:s;display:grid;gap:12px;margin:16px 0}
+.steps div{counter-increment:s;display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.steps div:before{content:counter(s);width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:700;flex-shrink:0;font-size:14px}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
+.cgrid a{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;display:block;transition:.2s}.cgrid a:hover{border-color:var(--green);transform:translateY(-2px)}
+.cgrid svg{font-size:28px;color:var(--green2);margin-bottom:10px}.cgrid b{display:block;color:var(--green);font-family:var(--head);font-size:18px}.cgrid span{color:var(--muted);font-size:14px}
+.mnav{display:none}
+
+/* ===== Responsive ===== */
+@media(max-width:1100px){.nav-links{display:none}.menu-btn{display:grid}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.pdp{gap:28px}.co{grid-template-columns:1fr}.f-main{grid-template-columns:1fr 1fr 1fr}.f-about{grid-column:1/-1}.feature-c{padding:36px}}
+@media(max-width:720px){
+:root{--ann:30px;--nav:54px}
+body{font-size:14.5px;padding-bottom:calc(68px + env(safe-area-inset-bottom))}
+.nav{position:relative}.nav .logo{position:absolute;left:50%;transform:translateX(-50%)}.sec-head h2{font-size:26px}.logo img{height:30px}.ib{width:40px;height:40px;font-size:20px}#btn-search,#btn-acc{display:none}
+.hero-d{display:none}.hero-m{display:block}
+.trust{grid-template-columns:1fr 1fr;padding:16px 0}.trust div{font-size:12px;gap:9px}.trust small{display:none}.trust .ico{width:36px;height:36px;font-size:17px}
+.section{padding-top:44px}.sec-head{margin-bottom:18px}.sec-head p{font-size:13px}
+.cat,.cat.lg{grid-column:span 6;min-height:190px}.cat.lg{grid-column:span 12;min-height:220px}.cats{gap:10px}.cat-t{left:14px;bottom:14px;right:54px}.cat-t h3{font-size:18px}.cat-t p{display:none}.cat-go{width:28px;height:28px;right:10px;bottom:12px;font-size:13px}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}
+.pc-info h3{font-size:13.5px;min-height:38px}.price b{font-size:15.5px}.wish,.qadd{width:34px;height:34px;font-size:17px}
+.feature{grid-template-columns:1fr;border-radius:20px}.feature-c{padding:28px 22px}.feature-i{min-height:200px;order:-1}
+.band{flex-direction:column;align-items:stretch;padding:26px 20px;border-radius:20px}
+.f-main{grid-template-columns:1fr 1fr;gap:28px 20px;padding:40px 0 28px}.f-main img{height:44px}
+footer{margin-top:56px}
+.page-head{padding:26px 22px;border-radius:20px;min-height:130px}.page-head img{width:50%;opacity:.55}
+.pdp{grid-template-columns:1fr}.gal{position:static}.perks{grid-template-columns:1fr 1fr}.pdp .price b{font-size:26px}
+.sticky-buy{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:70;background:#fff;border-top:1px solid var(--line);padding:10px 4% calc(10px + env(safe-area-inset-bottom));gap:12px;align-items:center}
+.sticky-buy .price{margin:0;flex-direction:column;gap:0;align-items:flex-start}.sticky-buy .price b{font-size:18px}.sticky-buy .btn{flex:1}
+body.on-pdp{padding-bottom:calc(76px + env(safe-area-inset-bottom))}body.on-pdp .mnav{display:none}
+.mnav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;bottom:0;left:0;right:0;z-index:65;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+.mnav a,.mnav button{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:600;color:#8a948d;padding:6px 0;position:relative}.mnav svg{font-size:23px}.mnav .srch{color:var(--green)}.mnav .srch svg{background:var(--lime);width:44px;height:44px;padding:11px;border-radius:50%;margin-top:-18px;box-shadow:0 4px 14px rgba(14,74,56,.25);border:3px solid #fff}.mnav .on{color:var(--green)}.mnav .badge{top:0;right:calc(50% - 22px)}
+.two{grid-template-columns:1fr}.card{padding:20px}.cgrid{grid-template-columns:1fr}
+.toast{bottom:84px}.tbl th,.tbl td{padding:10px;font-size:13px}
+.s-in input{font-size:17px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a href="#main" class="sr">Skip to content</a>
+<header class="site-head at-top" id="head">
+  <div class="ann" aria-label="Store announcements"><div class="ann-track" id="ann"></div></div>
+  <div class="nav-wrap"><div class="container nav">
+    <button class="ib menu-btn" id="btn-menu" aria-label="Open menu"></button>
+    <a href="#/" class="logo" aria-label="TrueFinds home"><img src="images/truefinds-logo.png" alt="TrueFinds" width="200" height="41"></a>
+    <nav class="nav-links" aria-label="Main" id="navlinks"></nav>
+    <div class="nav-actions">
+      <button class="ib" id="btn-search" aria-label="Search products"></button>
+      <a class="ib" href="#/wishlist" id="btn-wish" aria-label="Saved products"><span class="badge" id="b-wish" data-n="0"></span></a>
+      <a class="ib" href="#/account" id="btn-acc" aria-label="My account"></a>
+      <button class="ib" id="btn-cart" aria-label="Open cart"><span class="badge" id="b-cart" data-n="0"></span></button>
+    </div>
+  </div></div>
+</header>
+
+<div id="prog"></div>
+<main id="main" tabindex="-1"></main>
+
+<footer>
+  <div class="container">
+    <div class="f-main">
+      <div class="f-about"><a href="#/" class="logo" aria-label="TrueFinds home"><img src="images/truefinds-logo.png" alt="TrueFinds"></a>
+        <p>Quality kitchen essentials, home decor, gadgets and everyday finds, delivered across Pakistan with care.</p>
+        <div class="soc" id="soc"></div></div>
+      <div class="f-col"><h4>Shop</h4><a href="#/">Home</a><a href="#/collection/best-sellers">Best Sellers</a><a href="#/collection/kitchen-accessories">Kitchen Accessories</a><a href="#/collection/organizers">Organizers</a><a href="#/collection/home-decor">Home Decor</a><a href="#/collection/kids-and-baby-care">Kids &amp; Baby Care</a><a href="#/collection/personal-care">Personal Care</a><a href="#/collection/car-accessories">Car Accessories</a></div>
+      <div class="f-col"><h4>Help &amp; support</h4><a href="#/contact">Contact Us</a><a href="#/shipping">Shipping Information</a><a href="#/returns">Returns &amp; Refunds</a><a href="#/faq">FAQs</a><a href="#/about">About Us</a><a href="#/privacy">Privacy Policy</a></div>
+      <div class="f-col"><h4>Your account</h4><a href="#/account">My Account</a><a href="#/orders">My Orders</a><a href="#/wishlist">Saved Products</a><a href="#" data-open="cart">Shopping Cart</a></div>
+    </div>
+    <div class="f-bottom">© 2026 TrueFinds. All rights reserved.</div>
+  </div>
+</footer>
+
+<nav class="mnav" id="mnav" aria-label="Quick navigation"></nav>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="cart-dr" aria-label="Shopping cart" aria-hidden="true"></aside>
+<aside class="mmenu" id="mmenu" aria-label="Menu" aria-hidden="true"></aside>
+<div class="search" id="search" aria-hidden="true"><div class="container">
+  <div class="s-in"><span id="s-ic"></span><input id="s-input" type="search" placeholder="Search kitchen, organizers, lamps…" aria-label="Search products" autocomplete="off"><button class="ib" id="s-close" aria-label="Close search"></button></div>
+  <div class="s-res" id="s-res"></div>
+</div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+/* =========================================================
+   TRUEFINDS — data (real products from truefinds.pk)
+   To add/edit a product, change the PRODUCTS list below.
+   cols: bs=Best Sellers, k=Kitchen, o=Organizers, h=Home Decor,
+         b=Kids & Baby, p=Personal Care, g=Car & Gadgets
+   ========================================================= */
+const CFG={WA:'923113875114',IG:'https://www.instagram.com/truefinds_pk/',FB:'https://www.facebook.com/profile.php?id=61573473225109',FREE_SHIP:3000,SHIP:200,ORDER_ENDPOINT:'',SITE:'https://truefinds.pk'};
+const CDN='https://truefinds.pk/cdn/shop/';
+const COLS={
+ 'best-sellers':{k:'bs',n:'Best Sellers',d:'The finds our customers keep coming back to.',img:'files/WirelessCarLEDStrobeLightWithRemotehero-blue.webp?v=1784231364'},
+ 'kitchen-accessories':{k:'k',n:'Kitchen Accessories',d:'Smart tools and tidy storage for easier cooking.',img:'images/cat-kitchen.jpg'},
+ 'organizers':{k:'o',n:'Organizers',d:'Simple upgrades that put everything in its place.',img:'images/cat-organizers.jpg'},
+ 'home-decor':{k:'h',n:'Home Decor',d:'Little touches that make your space feel like you.',img:'images/cat-home-decor.jpg'},
+ 'kids-and-baby-care':{k:'b',n:'Kids & Baby Care',d:'Tableware, night lights and cosy things for little ones.',img:'images/cat-kids.jpg'},
+ 'personal-care':{k:'p',n:'Personal Care',d:'Daily rituals, made simpler.',img:'images/cat-personal-care.jpg'},
+ 'car-accessories':{k:'g',n:'Car Accessories',d:'Lights and locks to upgrade every drive.',img:'files/WirelessCarLEDStrobeLightWithRemotehero-blue.webp?v=1784231364'},
+ 'under-1000':{k:'u',n:'Under Rs. 1,000',d:'Pocket-friendly finds that still do the job.',img:'files/5in1VegetableCutterMultifunctionalgraterandcutter-MainPictures.jpg?v=1778611379'},
+ 'all':{k:'all',n:'All Products',d:'Everything we have found so far.',img:'collections/Test.jpg?v=1777835193'}
+};
+const LABEL={k:'Kitchen',o:'Organizers',h:'Home Decor',b:'Kids & Baby',p:'Personal Care',g:'Car Accessories'};
+// [handle, title, price, compare-at, [images], cols, flags('f'=from price,'x'=sold out), short description]
+const RAW=[
+['car-led-ambient-light-premium-hanging-light-for-cozy-vibes','Car LED Ambient Light — Premium Hanging Light for Cozy Vibes',1999,2500,['WhatsApp_Image_2026-08-10_at_23.22.59.jpg?v=1786393503','WhatsApp_Image_2026-08-10_at_23.22.49.jpg?v=1786393505','CarLEDAmbientLight-PremiumHangingLightforCozyVibes.jpg?v=1779093592','WhatsApp_Image_2026-08-10_at_23.23.07.jpg?v=1786393505','WhatsApp_Image_2026-08-10_at_23.23.22.jpg?v=1786393505'],'g h bs','','A hanging LED ambient light that gives your car a cosy, glowing interior.'],
+['car-steering-wheel-lock-seat-belt-lock','Car Steering Wheel Lock — Universal Anti-Theft Device',2799,3499,['Car_Steering_Wheel_Lock_Seat_Belt_Lock_2.jpg?v=1781311147','Car_Steering_Wheel_Lock_Seat_Belt_Lock_4.jpg?v=1781311164'],'g bs','','A universal anti-theft steering wheel lock that also works as a seat belt lock.'],
+['luxury-acrylic-rotating-brush-organizer-holder-for-your-tooth-brush-makeup-brush-multi-purpose','Luxury Acrylic Rotating Brush Organizer – Holder for Your Tooth Brush, Makeup Brush Multi-purpose',2199,2500,['LuxuryAcrylicRotatingMakeupBrushOrganizer-HolderforYourBeautyProducts-3.webp?v=1789771006','LuxuryAcrylicRotatingMakeupBrushOrganizer-HolderforYourBeautyProducts-4.webp?v=1789771006'],'o bs','','A rotating acrylic organizer for toothbrushes, makeup brushes and other small essentials.'],
+['wireless-car-led-strobe-light-with-remote','Wireless Car LED Strobe Light With Remote',1799,2200,['WirelessCarLEDStrobeLightWithRemotehero-blue.webp?v=1784231364','WirelessCarLEDStrobeLightWithRemotePurple.webp?v=1784231364'],'g bs','f','A wireless LED strobe light for your car, controlled with a remote. Available in more than one colour.'],
+['drill-free-acrylic-wall-shelf-for-bathroom-kitchen','Drill-Free Acrylic Wall Shelf for Bathroom & Kitchen',1699,2000,['Drill-FreeAcrylicWallShelfforBathroom_Kitchen_9.jpg?v=1790799358','Drill-FreeAcrylicWallShelfforBathroom_Kitchen_10.jpg?v=1790799358'],'o k h bs','f','A drill-free acrylic wall shelf, so you can add storage to your bathroom or kitchen without making holes.'],
+['led-tap-light-with-remote-control','LED Tap Light With Remote Control',1599,2400,['LEDTapLightWithRemoteControl-Mainimage.jpg?v=1778625282','LEDTapLightWithRemoteControl-fourthimage.jpg?v=1778625282'],'h bs','','An LED tap light that comes with a remote control.'],
+['5-in-1-vegetable-cutter-multifunctional-grater-and-cutter','5 in 1 Vegetable Cutter Multifunctional Grater and Cutter',799,1200,['5in1VegetableCutterMultifunctionalgraterandcutter-MainPictures.jpg?v=1778611379','5in1VegetableCutterMultifunctionalgraterandcutter-Secondimage.jpg?v=1778611379'],'k bs','','A 5-in-1 multifunctional grater and cutter for quicker kitchen prep.'],
+['12-pcs-silicone-cooking-utensils-kitchen-set','12 pcs Silicone Cooking Utensils Kitchen Set - High Quality Non-Stick Professional Cooking Tools Random Colors',2299,2999,['7700a888-3b24-4524-a29a-b7079bbc55d6.png?v=1781552725','9_6315e60d-c586-4d1e-a1f8-5948359ce1ee.webp?v=1781552724'],'k bs','','A 12-piece non-stick silicone cooking utensil set. Colours are sent at random.'],
+['premium-wooden-bird-led-table-lamp-minimalist-ambient-night-light-for-modern-home-decor','Premium Wooden Bird LED Table Lamp – Minimalist Ambient Night Light for Modern Home Décor',1800,3600,['premium-wooden-bird-led-table-lamp-minimalist-ambient-night-light-for-modern-home-d-cor.webp?v=1777659286'],'h','x',''],
+['spiral-led-table-lamp-modern-bedside-night-light-3-colours-dimmable-usb-powered','Spiral LED Table Lamp: Modern Bedside Night Light, 3 Colours, Dimmable, USB Powered',2800,4000,['WhatsAppImage2026-10-16at15.41.36_1.jpg?v=1792154775'],'h o','','A modern bedside lamp with 3 colours, dimming and USB power.'],
+['premium-wall-mounted-wooden-key-holder-box-with-tree-design-decorative-key-organizer-cabinet','Premium Wall-Mounted Wooden Key Holder Box with Tree Design – Decorative Key Organizer Cabinet',2600,5000,['premium-wall-mounted-wooden-key-holder-box-with-tree-design-decorative-key-organizer-cabinet.webp?v=1777648207'],'o h','',''],
+['premium-3-piece-wooden-book-storage-box-set-vintage-style-decorative-organizer-for-home-decor','Premium 3-Piece Wooden Book Storage Box Set – Vintage-Style Decorative Organizer for Home Décor',5500,7500,['premium-3-piece-wooden-book-storage-box-set-vintage-style-decorative-organizer-for-home-d-cor.webp?v=1777647398'],'o h','',''],
+['ecoco-tissue-box-modern-countertop-tissue-dispenser-with-multifunctional-holder','ECOCO Tissue Box – Modern Countertop Tissue Dispenser With Multifunctional Holder',1999,2499,['ECOCOTissueBox_ModernCountertopTissueDispenserWithMultifunctionalHolder.jpg?v=1778966327'],'p','',''],
+['transparent-scalp-massaging-oil-applicator-comb','Transparent Scalp Massaging Oil Applicator Comb',949,1599,['TransparentScalpMassagingOilApplicatorCombMainimage.jpg?v=1790711114'],'p','','A transparent comb for applying oil and massaging the scalp.'],
+['6-piece-stainless-steel-ear-pick-set-reusable-ear-cleaning-tool-kit','6-Piece Stainless Steel Ear Pick Set – Reusable Ear Cleaning Tool Kit',250,650,['6-piece-stainless-steel-ear-pick-set-reusable-ear-cleaning-tool-kit.webp?v=1777665859'],'p','','A reusable 6-piece stainless steel ear cleaning kit.'],
+['premium-stainless-steel-beauty-grooming-kit-full-nail-eyebrow-care-set-for-personal-use','Premium Stainless Steel Beauty Grooming Kit – Full Nail & Eyebrow Care Set for Personal Use',300,500,['premium-stainless-steel-beauty-grooming-kit-full-nail-eyebrow-care-set-for-personal-use.webp?v=1777666041'],'p','','A stainless steel grooming kit for full nail and eyebrow care.'],
+['3-in-1-fruit-washing-draining-bowl-with-strainer-lid-wash-drain-store','3-in-1 Fruit Washing & Draining Bowl with Strainer Lid: Wash, Drain & Store',1100,1500,['61ARcNR0tTL._AC_SL1001.jpg?v=1792156610'],'k','','A bowl with a strainer lid to wash, drain and store fruit in one piece.'],
+['luxury-2-piece-glass-spice-jar-set-with-wooden-lids-tray-airtight-seasoning-containers-with-wooden-spoons','Luxury 2-Piece Glass Spice Jar Set with Wooden Lids & Tray – Airtight Seasoning Containers with Wooden Spoons',4600,7500,['luxury-2-piece-glass-spice-jar-set-with-wooden-lids-tray-airtight-seasoning-containers-with-wooden-spoons.webp?v=1777663333'],'k','',''],
+['wall-mounted-cutlery-holder-with-drain-tray-premium-kitchen-utensil-organizer-1-piece','Wall-Mounted Cutlery Holder with Drain Tray – Premium Kitchen Utensil Organizer (1 Piece)',1250,2500,['wall-mounted-cutlery-holder-with-drain-tray-premium-kitchen-utensil-organizer-1-piece.webp?v=1777663068'],'k o','',''],
+['premium-ceramic-tea-pot-sugar-jar-set-with-wooden-lid-serving-tray-elegant-kitchen-set','Premium Ceramic Tea Pot & Sugar Jar Set with Wooden Lid & Serving Tray – Elegant Kitchen Set',3900,4900,['premium-ceramic-tea-pot-sugar-jar-set-with-wooden-lid-serving-tray-elegant-kitchen-set.webp?v=1777662438'],'k','',''],
+['clear-adhesive-wall-mounted-acrylic-storage-shelf-with-hooks-for-bathroom-kitchen-organization','Clear Adhesive Wall-Mounted Acrylic Storage Shelf with Hooks for Bathroom & Kitchen Organization',2700,0,['clear-adhesive-wall-mounted-acrylic-storage-shelf-with-hooks-for-bathroom-kitchen-organization.webp?v=1777636471'],'k o','',''],
+['luxury-3-piece-ceramic-storage-jar-set-with-bamboo-lids-wooden-tray-airtight-spice-sugar-coffee-containers','Luxury 3-Piece Ceramic Storage Jar Set with Bamboo Lids & Wooden Tray – Airtight Spice, Sugar & Coffee Containers',6900,9500,['luxury-3-piece-ceramic-storage-jar-set-with-bamboo-lids-wooden-tray-airtight-spice-sugar-coffee-containers.webp?v=1777663505'],'k','',''],
+['luxury-deer-crown-cutlery-holder-metal-spoon-fork-organizer-stand-for-elegant-dining-kitchen-storage','Luxury Deer Crown Cutlery Holder – Metal Spoon & Fork Organizer Stand for Elegant Dining & Kitchen Storage',2200,4600,['luxury-deer-crown-cutlery-holder-metal-spoon-fork-organizer-stand-for-elegant-dining-kitchen-storage.webp?v=1777662885'],'k','',''],
+['freshvault-luxe-leakproof-salad-jar-with-dressing-cup-premium-portable-food-container-for-on-the-go-meals','FreshVault Luxe Leakproof Salad Jar with Dressing Cup – Premium Portable Food Container for On-the-Go Meals',1700,2900,['freshvault-luxe-leakproof-salad-jar-with-dressing-cup-premium-portable-food-container-for-on-the-go-meals-homes.webp?v=1777662633'],'k','',''],
+['premium-stainless-steel-garlic-crusher-herb-grinder-non-slip-kitchen-tool','Premium Stainless Steel Garlic Crusher & Herb Grinder – Non-Slip Kitchen Tool',5100,7500,['premium-stainless-steel-garlic-crusher-herb-grinder-non-slip-kitchen-tool.webp?v=1777662223'],'k','',''],
+['le-creuset-6-piece-rainbow-stoneware-mini-bowl-set-premium-serving-dessert-snack-bowls','Le Creuset 6-Piece Rainbow Stoneware Mini Bowl Set – Premium Serving, Dessert & Snack Bowls',12899,20000,['le-creuset-6-piece-rainbow-stoneware-mini-bowl-set-premium-serving-dessert-snack-bowls.webp?v=1777661987'],'k','',''],
+['premium-3-piece-ceramic-condiment-jar-set-dany-home-with-wooden-lid-serving-tray','Premium 3-Piece Ceramic Condiment Jar Set – Dany Home with Wooden Lid & Serving Tray',5100,7500,['premium-3-piece-ceramic-condiment-jar-set-dany-home-with-wooden-lid-serving-tray.webp?v=1777661010'],'k','',''],
+['luxury-wall-mounted-soap-holder-waterproof-abs-box','Luxury Wall Mounted Soap Holder – Waterproof ABS Box',650,1000,['LuxuryWallMountedSoapHolder_WaterproofABSBox1.jpg?v=1778271449'],'o','',''],
+['premium-dual-layer-cosmetic-organizer-box-elegant-24cm-vanity-storage-drawer','Premium Dual-Layer Cosmetic Organizer Box – Elegant 24cm Vanity Storage Drawer',850,1500,['premium-dual-layer-cosmetic-organizer-box-elegant-24cm-vanity-storage-drawer.webp?v=1777639675'],'o p','',''],
+['premium-large-capacity-makeup-travel-cosmetic-organizer-case-portable-beauty-storage-solution','Premium Large Capacity Makeup & Travel Cosmetic Organizer Case – Portable Beauty Storage Solution',1100,1900,['premium-large-capacity-makeup-travel-cosmetic-organizer-case-portable-beauty-storage-solution.webp?v=1777639079'],'o p','',''],
+['premium-clear-cosmetic-organizer-box-with-drawer-elegant-makeup-skincare-storage-solution','Premium Clear Cosmetic Organizer Box with Drawer – Elegant Makeup & Skincare Storage Solution',7200,8900,['premium-clear-cosmetic-organizer-box-with-drawer-elegant-makeup-skincare-storage-solution.webp?v=1777636865'],'o','',''],
+['tabletop-cosmetic-stationery-organizer-multi-purpose-storage-for-desk-vanity','Tabletop Cosmetic & Stationery Organizer – Multi-Purpose Storage for Desk & Vanity',1800,2600,['tabletop-cosmetic-stationery-organizer-multi-purpose-storage-for-desk-vanity.webp?v=1777644727'],'o','',''],
+['wall-mounted-drawer-storage-box-dustproof-cosmetic-organizer-for-bathroom-vanity','Wall-Mounted Drawer Storage Box – Dustproof Cosmetic Organizer for Bathroom & Vanity',2100,3100,['wall-mounted-drawer-storage-box-dustproof-cosmetic-organizer-for-bathroom-vanity-items.webp?v=1777642449'],'o','',''],
+['premium-large-capacity-dustproof-cosmetic-organizer-spacious-makeup-storage-box','Premium Large Capacity Dustproof Cosmetic Organizer – Spacious Makeup Storage Box',7600,8700,['premium-large-capacity-dustproof-cosmetic-organizer-spacious-makeup-storage-box.jpg?v=1777646061'],'o','',''],
+['premium-ecoco-dustproof-cosmetic-storage-organizer-elegant-makeup-organizer-box','Premium Ecoco Dustproof Cosmetic Storage Organizer – Elegant Makeup Organizer Box',7500,8900,['premium-ecoco-dustproof-cosmetic-storage-organizer-elegant-makeup-organizer-box.webp?v=1777644993'],'o','',''],
+['large-capacity-rotating-cosmetic-organizer-spacious-makeup-storage-display-rack','Large Capacity Rotating Cosmetic Organizer – Spacious Makeup Storage & Display Rack',2600,3500,['large-capacity-rotating-cosmetic-organizer-spacious-makeup-storage-display-rack.webp?v=1777644363'],'o','x',''],
+['tom-jerry-5-piece-kids-dinner-set-premium-ceramic-plate-bowl-dish-spoon-chopsticks-gift-set','Tom & Jerry 5-Piece Kids Dinner Set – Premium Ceramic Plate, Bowl, Dish, Spoon & Chopsticks Gift Set',6900,8500,['tom-jerry-5-piece-kids-dinner-set-premium-ceramic-plate-bowl-dish-spoon-chopsticks-gift-set.webp?v=1777664970'],'b','',''],
+['disney-mickey-friends-ceramic-dinnerware-set-premium-kids-tableware-complete-meal-gift-set','Disney Mickey & Friends Ceramic Dinnerware Set – Premium Kids Tableware Complete Meal Gift Set',6900,9500,['disney-mickey-friends-ceramic-dinnerware-set-premium-kids-tableware-complete-meal-gift-set.webp?v=1777663713'],'b','',''],
+['3-in-1-mosquito-repellent-lamp-humidifier-night-light-and-repellent-diffuser-usb-powered','3-in-1 Mosquito Repellent Lamp: Humidifier, Night Light and Repellent Diffuser, USB Powered',2299,3200,['61CCxwzZn6L._SL1500.jpg?v=1792156128'],'b','','A USB-powered lamp that works as a humidifier, night light and repellent diffuser.'],
+['5-piece-luxury-glass-food-storage-bowl-set-with-airtight-lids-kitchen-organizer-meal-prep-containers','5-Piece Luxury Glass Food Storage Bowl Set with Airtight Lids – Kitchen Organizer & Meal Prep Containers',2600,4999,['5-piece-luxury-glass-food-storage-bowl-set-with-airtight-lids-kitchen-organizer-meal-prep-containers.webp?v=1777665286'],'b k','x',''],
+['hello-kitty-4-piece-kids-dinner-set-ceramic-plate-bowl-cup-spoon-premium-tableware-gift-set','Hello Kitty 4-Piece Kids Dinner Set – Ceramic Plate, Bowl, Cup & Spoon Premium Tableware Gift Set',6800,7999,['hello-kitty-4-piece-kids-dinner-set-ceramic-plate-bowl-cup-spoon-premium-tableware-gift-set.webp?v=1777665103'],'b','x',''],
+['disney-donald-duck-friends-5-piece-kids-dinner-set-ceramic-plate-bowl-cup-spoon-chopsticks-gift-set','Disney Donald Duck & Friends 5-Piece Kids Dinner Set – Ceramic Plate, Bowl, Cup, Spoon & Chopsticks Gift Set',6900,8500,['disney-donald-duck-friends-5-piece-kids-dinner-set-ceramic-plate-bowl-cup-spoon-chopsticks-gift-set.webp?v=1777664849'],'b','',''],
+['disney-mickey-friends-5-piece-kids-dinner-set-ceramic-plate-bowl-cup-spoon-chopsticks-gift-set-1','Disney Mickey & Friends 5-Piece Kids Dinner Set – Ceramic Plate, Bowl, Cup, Spoon & Chopsticks Gift Set',6900,11000,['DisneyMickey_Friends5-PieceKidsDinnerSet_CeramicPlate_Bowl_Cup_Spoon_ChopsticksGiftSet-baby.webp?v=1777664720'],'b','',''],
+['disney-mickey-friends-5-piece-kids-dinner-set-ceramic-plate-bowl-cup-spoon-chopsticks-gift-set','Disney Mickey & Friends 5-Piece Kids Dinner Set – Ceramic Plate, Bowl, Cup, Spoon & Chopsticks Gift Set',6900,8500,['disney-mickey-friends-5-piece-kids-dinner-set-ceramic-plate-bowl-cup-spoon-chopsticks-gift-set.webp?v=1777664461'],'b','',''],
+['kids-plush-bunny-ear-muffs-soft-winter-ear-warmers-with-long-fluffy-hanging-straps','Kids Plush Bunny Ear Muffs – Soft Winter Ear Warmers with Long Fluffy Hanging Straps',1200,2500,['kids-plush-bunny-ear-muffs-soft-winter-ear-warmers-with-long-fluffy-hanging-straps.webp?v=1777664333'],'b','','Soft plush bunny ear muffs that keep little ears warm in winter.'],
+['disney-mickey-minnie-donald-ceramic-bowl-set-premium-4-piece-cartoon-character-serving-bowls','Disney Mickey, Minnie & Donald Ceramic Bowl Set – Premium 4-Piece Cartoon Character Serving Bowls',5100,8999,['disney-mickey-minnie-donald-ceramic-bowl-set-premium-4-piece-cartoon-character-serving-bowls.webp?v=1777664158'],'b','',''],
+['kids-dream-castle-star-projector-night-lamp-with-bluetooth-luxury-bedtime-night-light','Kids Dream Castle Star Projector Night Lamp with Bluetooth – Luxury Bedtime Night Light',4300,5500,['kids-dream-castle-star-projector-night-lamp-with-bluetooth-luxury-bedtime-night-light.webp?v=1777663970'],'b','','A castle-shaped star projector night lamp with Bluetooth, made for bedtime.']
+];
+const PRODUCTS=RAW.map(([h,t,p,c,f,cols,fl,d])=>{const parts=t.split(/ [–—-] |: /);return{h,t,short:parts[0].trim(),tail:parts.slice(1).join(' — ').trim(),p,c:c>p?c:0,f,cols:cols.split(' '),from:fl.includes('f'),oos:fl.includes('x'),d}});
+const pOf=h=>PRODUCTS.find(p=>p.h===h);
+const pCat=p=>LABEL[p.cols.find(c=>LABEL[c])]||'Everyday Finds';
+const pc=p=>p.c?Math.round((p.c-p.p)/p.c*100):0;
+const imgU=(f,w=700)=>f.startsWith('images/')?f:CDN+(f.includes('/')?f:'files/'+f)+(f.includes('?')?'&':'?')+'width='+w;
+const FAQS=[
+['How long does delivery take?','Main cities take 2–5 working days and other major cities 3–6 working days. Remote areas take 5–7 working days. Delivery costs Rs. 200 and is free on orders above Rs. 3,000.'],
+['Can I pay cash on delivery?','Yes. COD is available on all orders nationwide, so you pay when you receive your parcel. EasyPaisa, JazzCash, bank transfer and Visa / Mastercard are also available.'],
+['What if I receive a damaged product?','Record a video while opening your parcel and WhatsApp us within 7 days. We will replace the item or refund the amount.'],
+['Do you deliver to all cities?','Yes. We deliver to every city and town across Pakistan.'],
+['How can I track my order?','Once your order is dispatched, we send you tracking details so you can follow your parcel with our courier partner.'],
+['Is every product genuine?','Every product is quality-checked before dispatch. What you see is exactly what you get.']
+];
+</script>
+<script>
+(()=>{
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const store={get(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const money=n=>'Rs. '+Number(n).toLocaleString('en-PK');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const IC={
+star:'<path d="m12 3.2 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17.2l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3.2Z"/>',search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+heart:'<path d="M12 20s-7.5-4.6-9.2-9.3C1.6 7.4 3.5 4 6.8 4c2 0 3.5 1.1 5.2 3 1.7-1.9 3.2-3 5.2-3 3.3 0 5.2 3.4 4 6.7C19.5 15.4 12 20 12 20Z"/>',
+bag:'<path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/>',
+bagPlus:'<path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/><path d="M12 11.5v5M9.5 14h5"/>',
+menu:'<path d="M4 7h16M4 12h16M4 17h10"/>',close:'<path d="M6 6l12 12M18 6 6 18"/>',
+arrow:'<path d="M7 17 17 7M8 7h9v9"/>',arrowR:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+truck:'<path d="M3 6.5h11V16H3zM14 10h4l3 3v3h-7"/><circle cx="7.5" cy="17.5" r="1.7"/><circle cx="17.5" cy="17.5" r="1.7"/>',
+cash:'<rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/>',
+ret:'<path d="M4 12a8 8 0 1 0 2.4-5.7L4 8.5"/><path d="M4 3.8v4.7h4.7"/>',
+shield:'<path d="M12 3 5 6v5c0 4.5 3 8.2 7 10 4-1.8 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2.2 2.2L15.5 10"/>',
+wa:'<path d="M20 11.5a8 8 0 0 1-11.9 7L4 19.5l1.1-4A8 8 0 1 1 20 11.5Z"/><path d="M9.2 8.6c-.3.6-.2 1.6.9 3.1 1.1 1.5 2.3 2.2 3 2.4.7.2 1.3-.2 1.5-.8l-1.5-.9-.7.6c-.8-.3-1.7-1.2-2-2l.6-.7-.8-1.5-1 .8Z"/>',
+plus:'<path d="M12 5v14M5 12h14"/>',minus:'<path d="M5 12h14"/>',trash:'<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+check:'<path d="m5 12.5 4.5 4.5L19 7.5"/>',home:'<path d="M4 11 12 4l8 7v9H4z"/><path d="M10 20v-6h4v6"/>',
+grid:'<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+ig:'<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7v.01"/>',
+fb:'<path d="M14 8.5h2.5V5H14a3.5 3.5 0 0 0-3.5 3.5V11H8v3.5h2.5V21H14v-6.5h2.5L17 11h-3V9c0-.3.2-.5.5-.5Z"/>',
+mail:'<rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m4 7.5 8 6 8-6"/>',
+box:'<path d="M3.5 8 12 4l8.5 4v8L12 20l-8.5-4z"/><path d="M3.5 8 12 12l8.5-4M12 12v8"/>',
+user:'<circle cx="12" cy="8" r="4"/><path d="M4.5 20c.8-3.6 3.8-5.5 7.5-5.5s6.7 1.9 7.5 5.5"/>'
+};
+const ic=(n,fill)=>`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"${fill?' style="fill:currentColor"':''}>${IC[n]}</svg>`;
+const waLink=t=>`https://wa.me/${CFG.WA}?text=${encodeURIComponent(t)}`;
+
+/* ---------- state ---------- */
+let cart=store.get('tf_cart',[]),wish=store.get('tf_wish',[]),orders=store.get('tf_orders',[]),recent=store.get('tf_recent',[]);
+const saveCart=()=>store.set('tf_cart',cart);
+const cartQty=()=>cart.reduce((s,i)=>s+i.q,0);
+const cartSub=()=>cart.reduce((s,i)=>s+(pOf(i.h)?.p||0)*i.q,0);
+const shipFor=s=>s===0?0:(s>=CFG.FREE_SHIP?0:CFG.SHIP);
+cart=cart.filter(i=>pOf(i.h));
+
+/* ---------- layers ---------- */
+const scrim=$('#scrim');let openEl=null;
+function openLayer(el){closeLayers();openEl=el;el.classList.add('on');el.setAttribute('aria-hidden','false');scrim.classList.add('on');document.body.style.overflow='hidden';$('#head').classList.remove('hide')}
+function closeLayers(){if(openEl){openEl.classList.remove('on');openEl.setAttribute('aria-hidden','true')}openEl=null;scrim.classList.remove('on');document.body.style.overflow=''}
+scrim.onclick=closeLayers;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLayers()});
+let tt;function toast(msg,action){const t=$('#toast');t.innerHTML=`<span>${esc(msg)}</span>${action||''}`;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),3200)}
+
+/* ---------- shared pieces ---------- */
+const priceHTML=p=>`<div class="price"><b>${p.from?'From ':''}${money(p.p)}</b>${p.c?`<s>${money(p.c)}</s><em>-${pc(p)}%</em>`:''}</div>`;
+function card(p){const on=wish.includes(p.h);return `<article class="pc"><div class="pc-media"><a href="#/product/${p.h}" aria-label="${esc(p.short)}"><img src="${imgU(p.f[0],600)}" alt="${esc(p.short)}" loading="lazy" width="600" height="600">${p.f[1]?`<img class="alt" src="${imgU(p.f[1],600)}" alt="" loading="lazy">`:''}</a>${p.oos?'<span class="tag out">Sold out</span>':p.c?`<span class="tag">-${pc(p)}%</span>`:''}<button class="wish ${on?'on':''}" data-wish="${p.h}" aria-label="${on?'Remove from':'Add to'} saved: ${esc(p.short)}" aria-pressed="${on}">${ic('heart')}</button><button class="qadd" data-add="${p.h}" aria-label="Add ${esc(p.short)} to cart" ${p.oos?'disabled':''}>${ic('bagPlus')}</button></div><div class="pc-info"><span class="pc-cat">${pCat(p)}</span><a href="#/product/${p.h}"><h3>${esc(p.short)}</h3></a>${priceHTML(p)}</div></article>`}
+const grid=l=>`<div class="grid">${l.map(card).join('')}</div>`;
+const secHead=(t,d,href,lab='View all',kick)=>`<div class="sec-head"><div><h2>${t}</h2>${kick&&d?`<p>${d}</p>`:''}</div>${href?`<a class="link" href="${href}">${lab} ${ic('arrow')}</a>`:''}</div>`;
+const inCol=(k)=>PRODUCTS.filter(p=>k==='all'||(k==='u'?p.p<=1000:p.cols.includes(k)));
+const avail=l=>[...l.filter(p=>!p.oos),...l.filter(p=>p.oos)];
+const empty=(t,d,btn)=>`<div class="empty"><span class="big">${ic('bag')}</span><h2>${t}</h2><p>${d}</p>${btn||''}</div>`;
+const crumbs=a=>`<nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a>${a.map(x=>` ${ic('arrowR')} ${x[1]?`<a href="${x[1]}">${esc(x[0])}</a>`:`<span>${esc(x[0])}</span>`}`).join('')}</nav>`;
+const faqHTML=l=>`<div class="acc">${l.map(f=>`<details><summary>${f[0]}</summary><div class="a">${f[1]}</div></details>`).join('')}</div>`;
+const perks=`<div class="perks"><div>${ic('truck')}Nationwide delivery</div><div>${ic('cash')}Cash on delivery</div><div>${ic('ret')}7-day returns</div><div>${ic('shield')}100% genuine</div></div>`;
+
+/* ---------- chrome ---------- */
+const NAV=[['Home','#/','home'],['Kitchen','#/collection/kitchen-accessories','kitchen-accessories'],['Organizers','#/collection/organizers','organizers'],['Home Decor','#/collection/home-decor','home-decor'],['Kids & Baby','#/collection/kids-and-baby-care','kids-and-baby-care'],['Personal Care','#/collection/personal-care','personal-care'],['Contact','#/contact','contact']];
+function buildChrome(){
+ const msgs=['<b>Free delivery</b> on orders over Rs. 3,000','Cash on delivery <b>nationwide</b>','New arrivals every week','Easy 7-day returns','WhatsApp support available'];
+ const a=msgs.map(m=>`<span>${m}</span>`).join('');$('#ann').innerHTML=a+a+a+a;
+ $('#navlinks').innerHTML=NAV.map(n=>`<a href="${n[1]}" data-nav="${n[2]}">${n[0]}</a>`).join('');
+ $('#btn-menu').innerHTML=ic('menu');$('#btn-search').innerHTML=ic('search');$('#btn-wish').insertAdjacentHTML('afterbegin',ic('heart'));$('#btn-cart').insertAdjacentHTML('afterbegin',ic('bag'));$('#btn-acc').innerHTML=ic('user');
+ $('#s-ic').innerHTML=ic('search');$('#s-close').innerHTML=ic('close');
+ $('#soc').innerHTML=`<a href="${CFG.IG}" target="_blank" rel="noopener" aria-label="Instagram">${ic('ig')}</a><a href="${CFG.FB}" target="_blank" rel="noopener" aria-label="Facebook">${ic('fb')}</a><a href="${waLink('Hi TrueFinds!')}" target="_blank" rel="noopener" aria-label="WhatsApp">${ic('wa')}</a>`;
+ $('#mnav').innerHTML=`<a href="#/" data-m="home">${ic('home')}Home</a><a href="#/categories" data-m="categories">${ic('grid')}Shop</a><button class="srch" id="m-search" aria-label="Search products">${ic('search')}<span>Search</span></button><a href="#/wishlist" data-m="wishlist">${ic('heart')}Saved<span class="badge" id="b-wish2" data-n="0"></span></a><button data-open="cart" data-m="cart">${ic('bag')}Cart<span class="badge" id="b-cart2" data-n="0"></span></button>`;
+ $('#mmenu').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><img src="images/truefinds-logo.png" alt="TrueFinds" style="height:38px"><button class="ib" data-close aria-label="Close menu">${ic('close')}</button></div><a href="#/account" style="display:flex;align-items:center;gap:10px;background:var(--limeSoft);border-radius:14px;padding:14px;border:0;margin-bottom:8px">${ic('user')} My Account</a><div style="height:10px"></div>${NAV.map(n=>`<a href="${n[1]}">${n[0]}</a>`).join('')}<a href="#/collection/best-sellers">Best Sellers</a><a href="#/collection/car-accessories">Car Accessories</a><div class="sm" style="margin-top:14px"><a href="#/about">About Us</a><a href="#/faq">FAQs</a><a href="#/shipping">Shipping</a><a href="#/returns">Returns</a><a href="${waLink('Hi TrueFinds!')}" target="_blank" rel="noopener">WhatsApp us</a></div>`;
+}
+function counts(){const q=cartQty(),w=wish.length;['b-cart','b-cart2'].forEach(i=>{const e=$('#'+i);if(e){e.textContent=q;e.dataset.n=q}});['b-wish','b-wish2'].forEach(i=>{const e=$('#'+i);if(e){e.textContent=w;e.dataset.n=w}})}
+
+/* ---------- cart ---------- */
+function addCart(h,q=1,note){const p=pOf(h);if(!p||p.oos)return false;const it=cart.find(i=>i.h===h);if(it){it.q=Math.min(20,it.q+q);if(note!=null&&note!=='')it.note=note}else cart.push({h,q,note:note||''});saveCart();renderCart();return true}
+function renderCart(){counts();const sub=cartSub(),left=Math.max(0,CFG.FREE_SHIP-sub),pct=Math.min(100,sub/CFG.FREE_SHIP*100),ship=shipFor(sub);
+ $('#cart-dr').innerHTML=`<div class="dr-h"><h3>Your cart (${cartQty()})</h3><button class="ib" data-close aria-label="Close cart">${ic('close')}</button></div>`+
+ (cart.length?`<div class="ship-bar">${left>0?`Add ${money(left)} more for free delivery`:'You have unlocked free delivery'}<i><b style="width:${pct}%"></b></i></div><div class="dr-b">${cart.map(i=>{const p=pOf(i.h);return `<div class="ci"><a href="#/product/${p.h}"><img src="${imgU(p.f[0],200)}" alt="${esc(p.short)}"></a><div><h4>${esc(p.short)}</h4>${i.note?`<div class="note">${esc(i.note)}</div>`:''}<div class="ci-r"><div class="qty"><button data-qty="${p.h}" data-d="-1" aria-label="Decrease quantity">${ic('minus')}</button><span>${i.q}</span><button data-qty="${p.h}" data-d="1" aria-label="Increase quantity">${ic('plus')}</button></div><b style="font-family:var(--head);color:var(--green)">${money(p.p*i.q)}</b><button class="rm" data-rm="${p.h}" aria-label="Remove ${esc(p.short)}">${ic('trash')}</button></div></div></div>`}).join('')}</div><div class="dr-f"><div class="row"><span>Subtotal</span><b>${money(sub)}</b></div><div class="row" style="color:var(--muted)"><span>Delivery</span><span>${ship?money(ship):'Free'}</span></div><a class="btn btn-p" style="width:100%;margin-top:12px" href="#/checkout">Checkout · ${money(sub+ship)}</a><button class="btn btn-o" style="width:100%;margin-top:8px" data-close>Continue shopping</button></div>`
+ :`<div class="dr-b" style="display:grid;place-items:center">${empty('Your cart is empty','Add a few finds and they will show up here.',`<a class="btn btn-p" href="#/collection/best-sellers" data-close>Shop best sellers</a>`)}</div>`);
+}
+
+/* ---------- reviews (SAMPLE TEXT — replace with real customer reviews) ---------- */
+const WHEN=['2 days ago','3 days ago','5 days ago','1 week ago','2 weeks ago','2 weeks ago','3 weeks ago','1 month ago','1 month ago','2 months ago'];
+const REV=[
+['Ayesha Malik','Lahore','silicone-cooking',5,'Silicone set bohot acha hai, non-stick pan par scratch nahi aata. Colours bhi cute hain.'],
+['Hamza Raza','Karachi','car-led-ambient',5,'Car mein lagate hi vibe change ho gayi. Raat ko driving ke time bohot cozy lagta hai.'],
+['Sana Iqbal','Islamabad','spiral-led',5,'Bedside par rakha hai, 3 colours aur dimming dono kamaal ke hain. Packing bhi achi thi.'],
+['Fatima Noor','Faisalabad','drill-free',4,'Drill ke baghair lag gaya, bathroom mein bohot kaam aa raha hai. Lagane se pehle deewar saaf kar lein.'],
+['Bilal Ahmed','Rawalpindi','steering-wheel',5,'Quality solid hai aur lock lagana easy hai. Ab car ki taraf se dil ko sukoon hai.'],
+['Maria Khan','Karachi','vegetable-cutter',5,'Sabzi kaatna ab aasaan ho gaya. 5 in 1 hone ki wajah se alag alag cheezein nahi chahiye.'],
+['Zainab Tariq','Lahore','tom-jerry',5,'Bachon ko Tom & Jerry set bohot pasand aaya. Ceramic quality achi hai, gift ke liye perfect.'],
+['Usman Ghani','Multan','strobe',4,'Remote se control hota hai, light bright hai. Colour options thode aur hone chahiye the.'],
+['Hina Shahid','Peshawar','ecoco-tissue',5,'Counter par rakha hai, bohot neat look deta hai. Packing bilkul theek aayi.'],
+['Kashif Mehmood','Sialkot','led-tap',5,'Remote wali tap light mast hai, kitchen mein bohot kaam aati hai.'],
+['Rabia Anwar','Hyderabad','luxury-acrylic-rotating',5,'Makeup brushes aur toothbrush dono ke liye use kar rahi hoon. Rotate smooth hota hai.'],
+['Saad Qureshi','Karachi','scalp',4,'Oil lagana asaan ho gaya, scalp massage ka alag maza hai. Price ke hisaab se theek.'],
+['Nimra Aslam','Gujranwala','spice-jar',5,'Glass jars aur wooden lids ne kitchen ka look badal diya. Airtight bhi hain.'],
+['Danish Javed','Lahore','garlic',5,'Lehsan chhilke ke saath bhi crush ho jata hai, saaf karna bhi easy.'],
+['Mehwish Riaz','Quetta','disney-mickey-friends-ceramic',5,'Beti ke liye liya tha, design cute hai aur set complete hai.'],
+['Tahir Mahmood','Karachi','wall-mounted-cutlery',5,'Drain tray ki wajah se chamach kabhi geele nahi rehte. Kitchen saaf rehta hai.'],
+['Sidra Batool','Lahore','soap-holder',5,'Waterproof hai aur sabun gal ke nahi rehta. Is price par bohot acha.'],
+['Adnan Sheikh','Islamabad','ear-pick',5,'Chhota sa set hai lekin kaam ka. Stainless steel hai to dobara use ho jata hai.'],
+['Komal Fatima','Karachi','grooming-kit',4,'Nail aur eyebrow dono ke liye complete kit, price bohot kam hai.'],
+['Rizwan Ali','Faisalabad','key-holder',5,'Tree design wala key box deewar par bohot sundar lagta hai. Chabiyan sab ek jagah.'],
+['Aliya Hassan','Lahore','tea-pot',5,'Tea pot aur sugar jar set mehmanon ke samne rakhne mein bohot elegant lagta hai.'],
+['Waqas Butt','Sargodha','mosquito',4,'Raat ko night light aur machhar dono ka solution, bachon ke room mein kaam ka.'],
+['Sobia Naz','Karachi','dual-layer',5,'Vanity ke liye dual layer box bohot handy hai. Drawers smooth chalte hain.'],
+['Farhan Siddiqui','Karachi','fruit-washing',5,'Phal dhona aur drain karna ek hi bowl mein, bohot convenient.'],
+['Iqra Yousaf','Lahore','castle-star',5,'Bachon ko star projector bohot pasand aaya, sone se pehle ab jhagra nahi hota.'],
+['Imran Baig','Peshawar','car-led-ambient',5,'Hanging light ka glow soft hai, zyada bright nahi, jo achi baat hai. Packing safe thi.'],
+['Anam Zahra','Islamabad','salad-jar',5,'Office lunch ke liye perfect, dressing cup alag hai aur leak bilkul nahi hota.'],
+['Hassan Raza','Lahore','silicone-cooking',4,'Utensils acche hain, bas colours random aate hain isliye pehle se pata nahi hota.'],
+['Mahnoor Saeed','Karachi','makeup-travel',5,'Travel mein makeup rakhne ke liye bada case, sab kuch aa jata hai.'],
+['Umair Khalid','Rawalpindi','drill-free',5,'Bathroom shelf bohot strong hai, shampoo bottles aaram se rakhi hain.'],
+['Laiba Imran','Lahore','book-storage',5,'Vintage style box set ghar ki decor mein bohot jachta hai.'],
+['Talha Nadeem','Karachi','steering-wheel',5,'Delivery 3 din mein ho gayi, product bilkul website jaisa mila.'],
+['Samina Kauser','Multan','ceramic-storage-jar',5,'Bamboo lids wale jars tray ke saath bohot premium lagte hain.'],
+['Ahsan Tariq','Lahore','strobe',5,'Party aur night drive ke liye mast light hai, remote bhi theek chalta hai.'],
+['Rameen Shah','Karachi','bunny',5,'Sardiyon ke liye ear muffs bohot soft hain, beti ne utarne ka naam nahi liya.'],
+['Junaid Akhtar','Islamabad','led-tap',4,'Light acchi hai, bas remote ko seedha point karna padta hai.'],
+['Noor ul Ain','Karachi','deer-crown',5,'Dining table par deer crown holder sab ki nazar kheench leta hai.'],
+['Faisal Hameed','Lahore','garlic',4,'Strong hai aur non-slip. Thoda heavy hai lekin kaam perfect karta hai.'],
+['Areeba Nasir','Faisalabad','scalp',5,'Hair oil lagane ka tareeqa hi badal gaya, ab kam oil mein kaam ho jata hai.'],
+['Moiz Ansari','Karachi','spiral-led',5,'Look modern hai aur USB se chalti hai, laptop ya power bank dono se.'],
+['Sehrish Latif','Sialkot','condiment-jar',5,'Ceramic condiment jars tray ke saath kitchen counter par bohot classy lagte hain.'],
+['Owais Qadir','Lahore','vegetable-cutter',5,'Salad ke liye grate karna ab 2 minute ka kaam hai.'],
+['Tayyaba Rafiq','Karachi','clear-adhesive',4,'Hooks ke saath shelf handy hai, lagane ke baad thodi der wait karein.'],
+['Daniyal Mirza','Islamabad','ecoco-tissue',4,'Look achi hai, tissue box ke saath holder ka extra faida.'],
+['Khadija Rehman','Lahore','donald',5,'Disney set gift diya, bachon ki pasand ka design, packing bohot achi thi.'],
+['Shoaib Arif','Karachi','car-led-ambient',4,'Light acchi hai, hang karne ka tareeqa samajhne mein thoda time laga.'],
+['Madiha Farooq','Lahore','le-creuset',5,'Rainbow bowls mehmanon ko dessert dene ke liye bohot pyare lagte hain.'],
+['Arslan Haider','Gujrat','wall-mounted-cutlery',4,'Space bachti hai aur kitchen organized rehta hai.'],
+['Bushra Ejaz','Karachi','minnie',5,'Bowls ka size theek hai aur characters cute hain, bachon ko khilana asaan.'],
+['Zeeshan Anwar','Lahore','ear-pick',5,'Price bohot kam hai aur quality expect se behtar nikli.'],
+['Alina Shakeel','Lahore','tom-jerry',5,'Gift ke liye liya, packing itni achi thi ke box khulte hi bachon ne khush ho kar utha liya.'],
+['Hammad Rauf','Karachi','steering-wheel',5,'Lock heavy duty lagta hai aur steering par fit bhi bilkul sahi aaya.'],
+['Misbah Arshad','Islamabad','luxury-acrylic-rotating',4,'Organizer acha hai, bas thoda bada hai chhote bathroom shelf ke liye.'],
+['Faizan Ali','Rawalpindi','strobe',5,'Remote theek chalta hai aur light raat ko kamaal lagti hai.'],
+['Nadia Pervaiz','Lahore','drill-free',5,'Kitchen mein masalon ke liye lagaya, bohot mazboot hai.'],
+['Sheraz Khan','Peshawar','led-tap',5,'Seedhe remote se on off, kamre ki decor ke saath achi lagti hai.'],
+['Fiza Batool','Karachi','spiral-led',4,'Dimming smooth hai, bas cable thodi chhoti lagi.'],
+['Atif Raza','Gujranwala','silicone-cooking',5,'Poora set ek hi jagah mil gaya, kitchen drawer ab organized hai.'],
+['Mahira Javed','Lahore','spice-jar',5,'Gift ke liye liya tha, sab ko pasand aaya. Tray ke saath bohot classy.'],
+['Yasir Mehmood','Multan','garlic',5,'Garlic crusher solid steel ka hai, istemal mein aasaan.'],
+['Ramsha Tahir','Islamabad','castle-star',5,'Bluetooth ki wajah se gaane bhi chal jate hain, bachon ke room ki shaan ban gaya.'],
+['Obaid Ullah','Quetta','car-led-ambient',5,'Delivery Quetta tak 5 din mein pohonch gayi, light bilkul theek hai.'],
+['Anila Sadiq','Karachi','ear-pick',5,'Chhote size ki wajah se purse mein rakh leti hoon, bohot kaam ki cheez.'],
+['Hira Mansoor','Lahore','dual-layer',5,'Do layers ki wajah se makeup aur skincare alag alag rakh sakti hoon.'],
+['Salman Younas','Karachi','vegetable-cutter',4,'Pyaz kaatne ke liye acha hai, bas dhyan se istemal karna padta hai.'],
+['Rida Fatima','Faisalabad','soap-holder',5,'Wall par mazbooti se laga hai aur sabun sukha rehta hai.'],
+['Kamran Iqbal','Sialkot','strobe',4,'Light zabardast hai, bas instructions thode aur clear hone chahiye the.'],
+['Saima Akram','Lahore','tea-pot',5,'Mehmanon ke liye chai serve karne ka maza hi alag hai ab.'],
+['Haris Javaid','Islamabad','key-holder',5,'Entrance par lagaya, chabiyan guum hona band ho gayin.'],
+['Alishba Noor','Karachi','bunny',5,'Bohot soft aur pyare hain, size bhi bachon ke liye perfect.'],
+['Tariq Hussain','Lahore','fruit-washing',5,'Strainer lid ki wajah se paani aaram se nikal jata hai.'],
+['Mubashir Ali','Karachi','ecoco-tissue',5,'Drawing room ki table par bohot achi lagti hai.'],
+['Naila Rashid','Hyderabad','scalp',5,'Oil lagate waqt hath gande nahi hote, bohot convenient.'],
+['Zubair Ahmed','Lahore','book-storage',4,'Look bohot sundar hai, bas apni jagah ka size pehle naap lein.'],
+['Sabeen Malik','Karachi','condiment-jar',5,'Counter par rakhne se space organize hoti hai aur look bhi acha lagta hai.'],
+['Raza Abbas','Rawalpindi','disney-mickey-friends-5-piece',5,'Bachon ka dinner set pyara hai, ceramic quality achi hai.']
+].map((r,i)=>({n:r[0],c:r[1],p:PRODUCTS.find(x=>x.h.includes(r[2])),s:r[3],t:r[4],w:WHEN[(i*7)%WHEN.length]})).filter(r=>r.p);
+const AVG=(REV.reduce((a,r)=>a+r.s,0)/REV.length).toFixed(1);
+const stars=n=>`<span class="stars" role="img" aria-label="${n} out of 5 stars">${[1,2,3,4,5].map(i=>`<svg class="${i>n?'off':''}" viewBox="0 0 24 24" aria-hidden="true">${IC.star}</svg>`).join('')}</span>`;
+const AV=['#e9f3d3','#fde8c8','#dcebe3','#f6e3da','#e3e9f4'];
+const revCard=(r,i)=>`<article class="rev"><div class="rev-h"><span class="av" style="background:${AV[i%AV.length]}">${r.n.split(' ').map(x=>x[0]).slice(0,2).join('')}</span><div><b>${esc(r.n)}</b><small>${esc(r.c)}</small></div></div>${stars(r.s)}<p>“${esc(r.t)}”</p><a class="rev-p" href="#/product/${r.p.h}"><img src="${imgU(r.p.f[0],120)}" alt="" loading="lazy"><span>${esc(r.p.short)}</span></a><span class="when">${r.w}</span></article>`;
+const reviewsHTML=()=>`<section class="section" id="reviews"><div class="container"><div class="rv"><div class="rv-sum"><div><h2 style="font-size:clamp(26px,3vw,36px)">What our customers say.</h2><span class="big">${AVG}</span>${stars(5)}<p>Based on 200+ reviews</p></div><div class="rv-arrows"><button data-rv="-1" aria-label="Previous reviews">${ic('arrowR').replace('<svg','<svg style="transform:scaleX(-1)"')}</button><button data-rv="1" aria-label="Next reviews">${ic('arrowR')}</button></div></div><div class="rv-track" id="rvt">${REV.map(revCard).join('')}</div></div></div></section>`;
+
+/* ---------- pages ---------- */
+let timers=[];
+function slider(root){const tr=$('.slides',root),n=tr.children.length,dots=$('.dots',root);if(n<2){dots.remove();return}let i=0,t,sx=null,moved=false;
+ const go=k=>{i=(k+n)%n;tr.style.transform=`translateX(-${i*100}%)`;$$('button',dots).forEach((b,j)=>b.classList.toggle('on',j===i))};
+ const reset=()=>{clearInterval(t);t=setInterval(()=>go(i+1),5000);timers.push(t)};
+ dots.innerHTML=Array.from({length:n},(_,j)=>`<button aria-label="Show banner ${j+1}"></button>`).join('');$$('button',dots).forEach((b,j)=>b.onclick=()=>{go(j);reset()});go(0);reset();
+ root.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;moved=false},{passive:true});
+ root.addEventListener('touchend',e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){moved=true;go(i+(dx<0?1:-1));reset()}sx=null});
+ root.addEventListener('click',e=>{if(moved){e.preventDefault();moved=false}},true)}
+
+function pHome(){
+ const bs=avail(inCol('bs')),hd=avail(inCol('h')).slice(0,4),pcare=avail(inCol('p')).slice(0,4),cheap=avail(inCol('u')).filter(p=>!p.oos).sort((a,b)=>a.p-b.p).slice(0,4);
+ const cat=(slug,cls,sub,imgOverride)=>{const c=COLS[slug];return `<a class="cat ${cls}" href="#/collection/${slug}"><img src="${imgU(imgOverride||c.img,cls?1000:700)}" alt="${c.n}" loading="lazy"><div class="cat-t"><h3>${c.n}</h3><p>${sub}</p></div><span class="cat-go">${ic('arrow')}</span></a>`};
+ return `<section class="hero" aria-label="Featured banners">
+ <div class="hero-d"><div class="slides"><a class="slide" href="#/collection/best-sellers"><img src="images/banner-desktop.jpg" alt="TrueFinds — Small finds. Big difference. Useful products for a better home." width="1920" height="1081" fetchpriority="high"></a></div><div class="dots"></div></div>
+ <div class="hero-m"><div class="slides"><a class="slide" href="#/collection/best-sellers"><img src="images/banner-mobile-1.jpg" alt="TrueFinds — Small finds. Big difference." width="900" height="1200" fetchpriority="high"></a><a class="slide" href="#/collection/kitchen-accessories"><img src="images/banner-mobile-2.jpg" alt="TrueFinds kitchen smart tools — Smarter tools, better cooking." width="900" height="1200"></a></div><div class="dots"></div></div></section>
+ <div class="container"><div class="trust"><div><span class="ico">${ic('cash')}</span><span>Cash on delivery<small>Pay when it arrives</small></span></div><div><span class="ico">${ic('truck')}</span><span>Free delivery over Rs. 3,000<small>Nationwide shipping</small></span></div><div><span class="ico">${ic('ret')}</span><span>7-day easy returns<small>Replacement or refund</small></span></div><div><span class="ico">${ic('shield')}</span><span>100% genuine<small>Quality-checked</small></span></div></div></div>
+ <section class="section" id="categories"><div class="container">${secHead('Shop by category.','A little something for every corner of your life.','#/collection/all','Explore all','Find your kind of good')}
+ <div class="cats">${cat('home-decor','lg','Make your space feel like you.')}${cat('kitchen-accessories','lg','Little helpers, big convenience.')}${cat('organizers','','')}${cat('car-accessories','','')}${cat('personal-care','','')}${cat('kids-and-baby-care','','')}</div></div></div></section>
+ <section class="section" id="trending"><div class="container">${secHead('Trending finds.','Our best sellers — handy things worth a closer look.','#/collection/best-sellers')}${grid(bs.slice(0,8))}</div></section>
+ <section class="section" id="home-decor"><div class="container">${secHead('Home decor.','Warm lights and tidy touches for every room.','#/collection/home-decor')}${grid(hd)}</div></section>
+ <section class="section" id="personal-care"><div class="container">${secHead('Personal care.','Small daily rituals, made easier.','#/collection/personal-care')}${grid(pcare)}</div></section>
+ <section class="section"><div class="container">${secHead('Finds under Rs. 1,000.','Pocket-friendly picks that still do the job.','#/collection/under-1000')}${grid(cheap)}</div></section>
+ <section class="section" id="decor-promo"><div class="container"><div class="deco"><div class="deco-c"><span class="deco-tag">A better everyday starts here</span><h2>Make room for the little things.</h2><p>From lamps and wall shelves to everyday decor, find simple upgrades that fit your life.</p><a class="btn btn-p" style="margin-top:26px" href="#/collection/home-decor">Shop home decor ${ic('arrow')}</a></div><div class="deco-i"><span class="blob"></span><div class="arch"><img src="images/cat-home-decor.jpg" alt="Cosy home decor" loading="lazy"></div></div></div></div></section>
+ 
+ ${reviewsHTML()}
+ <section class="section"><div class="container"><div class="band" style="background:var(--green);color:#fff"><div><h2 style="color:#fff">Good finds, delivered.</h2><p style="color:#cfe0d3">New arrivals and fresh discoveries, straight to your inbox.</p></div><form class="nl" id="nl"><input type="email" required placeholder="Your email address" aria-label="Email address"><button class="btn btn-l btn-sm" type="submit">Subscribe</button></form></div></div></section>`}
+
+let cf={sort:'feat',stock:false};
+function sortList(l){const a=[...l];if(cf.stock)return sortList2(a.filter(p=>!p.oos));return sortList2(a)}
+function sortList2(a){if(cf.sort==='lo')a.sort((x,y)=>x.p-y.p);else if(cf.sort==='hi')a.sort((x,y)=>y.p-x.p);else if(cf.sort==='az')a.sort((x,y)=>x.short.localeCompare(y.short));else if(cf.sort==='off')a.sort((x,y)=>pc(y)-pc(x));else return avail(a);return a}
+function pCollection(slug){const c=COLS[slug];if(!c)return p404();cf={sort:'feat',stock:false,name:c.n};const base=inCol(c.k);
+ document.title=c.n+' — TrueFinds';
+ 
+ return `<div class="container">${crumbs([[c.n]])}
+ <div class="toolbar"><span id="cnt"></span><div class="ctl"><label class="chk"><input type="checkbox" id="f-stock"> In stock only</label><select class="sel" id="f-sort" aria-label="Sort products"><option value="feat">Featured</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="off">Biggest discount</option><option value="az">Name: A–Z</option></select></div></div>
+ <div id="plist"></div></div>`}
+function fillCollection(base){const l=sortList(base);$('#cnt').innerHTML=`<b style="font-family:var(--head);font-weight:500;font-size:24px;color:var(--green)">${esc(cf.name)}</b> &nbsp;·&nbsp; ${l.length} product${l.length===1?'':'s'}`;$('#plist').innerHTML=l.length?grid(l):empty('Nothing here yet','Try another category or turn off the filters.',`<a class="btn btn-p" href="#/collection/all">See all products</a>`);initReveal()}
+function pSearch(q){document.title='Search: '+q+' — TrueFinds';const l=doSearch(q);return `<div class="container">${crumbs([['Search']])}<h1 style="font-size:28px;margin-bottom:6px">Results for “${esc(q)}”</h1><p style="color:var(--muted);margin-bottom:24px">${l.length} product${l.length===1?'':'s'} found</p>${l.length?grid(l):empty('No matches','Try a simpler word like “lamp”, “kitchen” or “organizer”.',`<a class="btn btn-p" href="#/collection/all">Browse all products</a>`)}</div>`}
+const doSearch=q=>{const w=q.toLowerCase().split(/\s+/).filter(Boolean);return avail(PRODUCTS.filter(p=>{const s=(p.t+' '+pCat(p)+' '+p.cols.map(c=>c).join(' ')).toLowerCase();return w.every(x=>s.includes(x))}))};
+
+function pProduct(h){const p=pOf(h);if(!p)return p404();document.title=p.short+' — TrueFinds';
+ recent=[h,...recent.filter(x=>x!==h)].slice(0,8);store.set('tf_recent',recent);
+ const primary=p.cols.find(c=>LABEL[c]),slug=Object.keys(COLS).find(s=>COLS[s].k===p.cols.find(c=>Object.values(COLS).some(x=>x.k===c)))||'all';
+ const rel=avail(inCol(primary||'all').filter(x=>x.h!==h)).slice(0,4),rv=recent.filter(x=>x!==h).map(pOf).filter(Boolean).slice(0,4);
+ const on=wish.includes(h),imgs=p.f;
+ const wa=waLink(`Hi TrueFinds! I want to order: ${p.short} (${money(p.p)})\n${CFG.SITE}/products/${p.h}`);
+ return `<div class="container">${crumbs([[COLS[slug].n,'#/collection/'+slug],[p.short]])}
+ <div class="pdp"><div class="gal"><div class="gal-main"><button class="wish ${on?'on':''}" data-wish="${h}" aria-label="Save product" aria-pressed="${on}">${ic('heart')}</button><img id="gmain" src="${imgU(imgs[0],1100)}" alt="${esc(p.short)}" width="1100" height="1100" fetchpriority="high"></div>${imgs.length>1?`<div class="thumbs">${imgs.map((f,i)=>`<button class="${i?'':'on'}" data-thumb="${imgU(f,1100)}" aria-label="Show image ${i+1}"><img src="${imgU(f,160)}" alt="" loading="lazy"></button>`).join('')}</div>`:''}</div>
+ <div><span class="pc-cat">${pCat(p)}</span><h1>${esc(p.short)}</h1>${p.tail?`<p class="sub">${esc(p.tail)}</p>`:''}
+ ${priceHTML(p)}<span class="stock ${p.oos?'out':''}">${p.oos?'Sold out':'In stock'}</span>
+ ${p.c?`<p style="margin-top:10px;font-size:13px;color:var(--limeText);font-weight:700">You save ${money(p.c-p.p)} (${pc(p)}% off)</p>`:''}
+ <p style="margin-top:16px;color:#3a4a41">${esc(p.d||`A quality-checked ${pCat(p).toLowerCase()} find from TrueFinds, delivered across Pakistan with cash on delivery.`)}</p>
+ 
+ ${p.oos?`<div class="buy"><a class="btn btn-w" href="${waLink('Hi TrueFinds! When will '+p.short+' be back in stock?')}" target="_blank" rel="noopener">${ic('wa')} Ask when it is back</a></div>`
+ :`<div class="field"><label>Quantity</label><div class="qty"><button id="q-" aria-label="Decrease quantity">${ic('minus')}</button><span id="qv">1</span><button id="q+" aria-label="Increase quantity">${ic('plus')}</button></div></div>
+ <div class="buy"><button class="btn btn-p" data-pdp-add="${h}">${ic('bagPlus')} Add to cart</button><button class="btn btn-l" data-buy="${h}">Buy it now</button></div>
+ <a class="btn btn-o" style="width:100%;margin-top:12px;border-color:#25d366;color:#14803d" href="${wa}" target="_blank" rel="noopener">${ic('wa')} Order on WhatsApp</a>`}
+ <div class="acc"><details open><summary>Product details</summary><div class="a"><b style="color:var(--ink)">${esc(p.t)}</b><br>Category: ${pCat(p)}<br>Delivery: Rs. 200, free over Rs. 3,000<br>Payment: Cash on delivery, EasyPaisa, JazzCash, bank transfer, card</div></details>
+ ${FAQS.slice(0,5).map(f=>`<details><summary>${f[0]}</summary><div class="a">${f[1]}</div></details>`).join('')}</div></div></div>
+ ${rel.length?`<section class="section"><div class="container" style="width:100%">${secHead('You may also like.','',`#/collection/${slug}`,'See more')}${grid(rel)}</div></section>`:''}
+ ${rv.length?`<section class="section"><div class="container" style="width:100%">${secHead('Recently viewed.','')}${grid(rv)}</div></section>`:''}</div>
+ ${p.oos?'':`<div class="sticky-buy"><div class="price"><b>${p.from?'From ':''}${money(p.p)}</b></div><button class="btn btn-p" data-pdp-add="${h}">${ic('bagPlus')} Add to cart</button></div>`}`}
+
+function pWishlist(){document.title='Saved products — TrueFinds';const l=wish.map(pOf).filter(Boolean);return `<div class="container">${crumbs([['Saved products']])}<h1 style="font-size:36px;margin-bottom:22px">Saved products</h1>${l.length?grid(l):empty('Nothing saved yet','Tap the heart on any product to keep it here.',`<a class="btn btn-p" href="#/collection/best-sellers">Explore best sellers</a>`)}</div>`}
+
+function pCheckout(){document.title='Checkout — TrueFinds';if(!cart.length)return `<div class="container">${empty('Your cart is empty','Add something first, then come back to check out.',`<a class="btn btn-p" href="#/collection/best-sellers">Shop best sellers</a>`)}</div>`;
+ const c=store.get('tf_cust',{}),sub=cartSub(),ship=shipFor(sub);
+ const fld=(id,name,label,val,err,extra='')=>`<div class="field"><label for="${id}">${label}</label><input id="${id}" name="${name}" value="${esc(val)}" ${extra}><div class="err">${err}</div></div>`;
+ return `<div class="container">${crumbs([['Checkout']])}<h1 style="font-size:36px;margin-bottom:22px">Checkout</h1><form class="co" id="co" novalidate>
+ <div class="card co-main">
+ <section><h2>Contact</h2>${fld('c-email','email','Email',c.email,'That email does not look right.','type="email" autocomplete="email"')}<p class="help">Used for your order confirmation and cart reminders</p><label class="chk2"><input type="checkbox" name="news" checked> Email me with news and offers</label></section>
+ <section><h2>Delivery</h2><div class="field"><label for="c-country">Country/Region</label><select id="c-country" name="country" disabled><option>Pakistan</option></select></div>
+ ${fld('c-name','name','Full name',c.name,'Please enter your full name.','autocomplete="name"')}
+ ${fld('c-addr','address','Address',c.address,'Please add your house, street and area.','autocomplete="street-address"')}
+ ${fld('c-apt','apt','Apartment, suite, etc. (optional)',c.apt||'','')}
+ <div class="two">${fld('c-city','city','City',c.city,'Please enter your city.','autocomplete="address-level2"')}${fld('c-zip','zip','Postal code (optional)',c.zip||'','','inputmode="numeric" autocomplete="postal-code"')}</div>
+ ${fld('c-phone','phone','Phone',c.phone,'Enter a valid mobile number, like 0300 1234567.','type="tel" inputmode="tel" autocomplete="tel" placeholder="03XX XXXXXXX"')}<p class="help">In case we need to contact you about your order</p>
+ <label class="chk2"><input type="checkbox" name="save" checked> Save this information for next time</label></section>
+ <section><h2>Shipping method</h2><div class="opt"><span><b>Standard Delivery</b><small>3 to 5 business days</small></span><b>${ship?money(ship):'Free'}</b></div></section>
+ <section><h2>Payment</h2><p class="help" style="margin:-6px 0 12px">All transactions are secure and encrypted.</p><div class="pay">
+ <label><input type="radio" name="pay" value="Cash on Delivery (COD)" checked><span><b>Cash on Delivery (COD)</b></span></label><div class="pay-d">Pay in cash when your parcel arrives.</div>
+ <label><input type="radio" name="pay" value="EasyPaisa"><span><b>EasyPaisa</b></span></label><div class="pay-d">Send payment to EasyPaisa A/c: <b>0311-8376673</b> | Account Title: <b>Sohaib Sohaib</b><br><br>After transfer, send screenshot on WhatsApp to confirm your order. Order processed after payment verification.</div>
+ <label><input type="radio" name="pay" value="JazzCash"><span><b>JazzCash</b></span></label><div class="pay-d">Send payment to Jazz Cash A/c: <b>0307-9256266</b> | Account Title: <b>Sohaib</b><br><br>After transfer, send screenshot on WhatsApp to confirm your order. Order processed after payment verification.</div></div></section>
+ <section><h2>Billing address</h2><div class="pay"><label><input type="radio" name="bill" value="same" checked><span><b>Same as shipping address</b></span></label><label><input type="radio" name="bill" value="diff"><span><b>Use a different billing address</b></span></label></div>
+ <div id="bill-f" hidden style="margin-top:12px">${fld('b-name','bname','Full name','','Please enter a name.')}${fld('b-addr','baddr','Address','','Please enter an address.')}${fld('b-city','bcity','City','','Please enter a city.')}</div></section>
+ </div>
+ <aside class="card" style="position:sticky;top:calc(var(--hh) + 16px)"><h2>Order summary</h2>${cart.map(i=>{const p=pOf(i.h);return `<div class="sum-i"><img src="${imgU(p.f[0],120)}" alt=""><span>${esc(p.short)}<small>Qty ${i.q}${i.note?' · '+esc(i.note):''}</small></span><b>${money(p.p*i.q)}</b></div>`}).join('')}
+ <div class="row" style="margin-top:8px"><span>Subtotal</span><span>${money(sub)}</span></div><div class="row"><span>Shipping</span><span>${ship?money(ship):'Free'}</span></div><div class="row t"><span>Total</span><span>${money(sub+ship)}</span></div>
+ <button class="btn btn-p" type="submit" style="width:100%;margin-top:16px">Complete order</button><p style="font-size:12px;color:var(--muted);text-align:center;margin-top:10px">By placing your order you agree to our <a href="#/returns" style="text-decoration:underline">returns policy</a>.</p></aside></form></div>`}
+function placeOrder(f){const v=n=>f.elements[n].value.trim(),bad=(id,t)=>{$('#'+id).closest('.field').classList.toggle('bad',t);return t};
+ const ph=v('phone').replace(/[\s\-+]/g,''),diff=f.elements.bill.value==='diff';let ok=true;
+ ok=!bad('c-name',v('name').length<3)&&ok;ok=!bad('c-phone',!/^(0|92)?3\d{9}$/.test(ph))&&ok;ok=!bad('c-city',v('city').length<2)&&ok;ok=!bad('c-addr',v('address').length<8)&&ok;ok=!bad('c-email',v('email')!==''&&!/^\S+@\S+\.\S+$/.test(v('email')))&&ok;
+ if(diff){ok=!bad('b-name',v('bname').length<3)&&ok;ok=!bad('b-addr',v('baddr').length<8)&&ok;ok=!bad('b-city',v('bcity').length<2)&&ok}
+ if(!ok){const e=$('.field.bad input,.field.bad textarea');e&&e.focus();return}
+ const sub=cartSub(),ship=shipFor(sub),addr=v('address')+(v('apt')?', '+v('apt'):'')+(v('zip')?' '+v('zip'):''),
+ o={id:'TF-'+Date.now().toString(36).toUpperCase().slice(-6),date:new Date().toISOString(),items:cart.map(i=>{const p=pOf(i.h);return{h:i.h,name:p.short,price:p.p,q:i.q,note:i.note||''}}),sub,ship,total:sub+ship,pay:f.elements.pay.value,status:'Awaiting confirmation',cust:{name:v('name'),phone:v('phone'),city:v('city'),email:v('email'),address:addr,note:''},billing:diff?{name:v('bname'),address:v('baddr'),city:v('bcity')}:null};
+ orders=[o,...orders];store.set('tf_orders',orders);
+ if(f.elements.save.checked)store.set('tf_cust',{name:o.cust.name,phone:o.cust.phone,city:o.cust.city,email:o.cust.email,address:v('address'),apt:v('apt'),zip:v('zip')});
+ if(CFG.ORDER_ENDPOINT)fetch(CFG.ORDER_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)}).catch(()=>{});
+ cart=[];saveCart();renderCart();location.hash='#/order/'+o.id}
+const orderText=o=>`Hi TrueFinds! I just placed order ${o.id}.\n\n${o.items.map(i=>`• ${i.name} × ${i.q}${i.note?' ('+i.note+')':''} — ${money(i.price*i.q)}`).join('\n')}\n\nTotal: ${money(o.total)}\nPayment: ${o.pay}\nName: ${o.cust.name}\nPhone: ${o.cust.phone}\nCity: ${o.cust.city}\nAddress: ${o.cust.address}${o.cust.note?'\nNote: '+o.cust.note:''}`;
+const orderBlock=o=>`<div class="ord"><div class="ord-h"><b>${o.id}</b><span>${new Date(o.date).toLocaleDateString('en-PK',{day:'numeric',month:'short',year:'numeric'})}</span><span class="pill">${o.status}</span></div>${o.items.map(i=>`<div class="row"><span>${esc(i.name)} × ${i.q}</span><span>${money(i.price*i.q)}</span></div>`).join('')}<div class="row"><span>Delivery</span><span>${o.ship?money(o.ship):'Free'}</span></div><div class="row t"><span>Total</span><span>${money(o.total)}</span></div><p style="color:var(--muted);font-size:13px;margin-top:8px">${esc(o.pay)} · ${esc(o.cust.name)}, ${esc(o.cust.city)}</p></div>`;
+function pOrder(id){const o=orders.find(x=>x.id===id);if(!o)return p404();document.title='Order placed — TrueFinds';return `<div class="container"><div class="ok"><div class="tick">${ic('check')}</div><h1>Thank you, ${esc(o.cust.name.split(' ')[0])}!</h1><p style="color:var(--muted);margin-top:8px">Your order <b style="color:var(--green)">${o.id}</b> has been placed. Tap the button below to send it to us on WhatsApp so we can confirm it right away.</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px"><a class="btn btn-w" href="${waLink(orderText(o))}" target="_blank" rel="noopener">${ic('wa')} Confirm on WhatsApp</a><a class="btn btn-o" href="#/">Continue shopping</a></div>${o.pay==='EasyPaisa'?`<div class="card"><h3>Complete your payment</h3><p style="color:#3a4a41">Send payment to EasyPaisa A/c: <b>0311-8376673</b> | Account Title: <b>Sohaib Sohaib</b>.<br>After transfer, send the screenshot on WhatsApp to confirm your order. Order processed after payment verification.</p></div>`:o.pay==='JazzCash'?`<div class="card"><h3>Complete your payment</h3><p style="color:#3a4a41">Send payment to Jazz Cash A/c: <b>0307-9256266</b> | Account Title: <b>Sohaib</b>.<br>After transfer, send the screenshot on WhatsApp to confirm your order. Order processed after payment verification.</p></div>`:''}<div class="card">${orderBlock(o).replace('class="ord"','style="border:0;padding:0;margin:0"')}</div></div></div>`}
+function pOrders(){document.title='My orders — TrueFinds';return `<div class="container">${crumbs([['My orders']])}<h1 style="font-size:36px;margin-bottom:22px">My orders</h1><div class="prose" style="max-width:720px">${orders.length?orders.map(o=>orderBlock(o)+`<p style="margin:-6px 0 18px"><a class="link" href="${waLink(orderText(o))}" target="_blank" rel="noopener">Send ${o.id} on WhatsApp ${ic('arrow')}</a></p>`).join(''):empty('No orders yet','Orders you place on this device will appear here.',`<a class="btn btn-p" href="#/collection/best-sellers">Start shopping</a>`)}</div></div>`}
+function pAccount(){document.title='My account — TrueFinds';const c=store.get('tf_cust',{});return `<div class="container">${crumbs([['My account']])}<h1 style="font-size:36px;margin-bottom:22px">My account</h1><div class="co"><form class="card" id="acc" novalidate><h2>Saved details</h2><p style="color:var(--muted);font-size:14px">Stored on this device to speed up checkout.</p><div class="two"><div class="field"><label for="a-name">Full name</label><input id="a-name" name="name" value="${esc(c.name)}"></div><div class="field"><label for="a-phone">Mobile number</label><input id="a-phone" name="phone" type="tel" value="${esc(c.phone)}"></div></div><div class="two"><div class="field"><label for="a-city">City</label><input id="a-city" name="city" value="${esc(c.city)}"></div><div class="field"><label for="a-email">Email</label><input id="a-email" name="email" type="email" value="${esc(c.email)}"></div></div><div class="field"><label for="a-addr">Address</label><textarea id="a-addr" name="address" rows="3">${esc(c.address)}</textarea></div><button class="btn btn-p" style="margin-top:18px" type="submit">Save details</button></form><div class="card"><h3>Quick links</h3><div class="f-col" style="margin-top:8px"><a href="#/orders">My orders (${orders.length})</a><a href="#/wishlist">Saved products (${wish.length})</a><a href="#" data-open="cart">Shopping cart (${cartQty()})</a><a href="#/contact">Need help?</a></div></div></div></div>`}
+
+/* static pages */
+const wrap=(t,body,d)=>{document.title=t+' — TrueFinds';return `<div class="container">${crumbs([[t]])}<h1 style="font-size:clamp(30px,4vw,42px);margin-bottom:${d?6:22}px">${t}</h1>${d?`<p style="color:var(--muted);margin-bottom:22px">${d}</p>`:''}<div class="prose">${body}</div></div>`};
+const pages={
+about:()=>wrap('About TrueFinds',`<p>Welcome to <b>TrueFinds.pk</b> — your trusted destination for quality kitchen essentials, home essentials and décor, everyday gadgets and car accessories, delivered to your doorstep across Pakistan.</p><p>We started TrueFinds with one simple belief: every Pakistani home deserves smart, practical products at honest prices, without the hassle of searching everywhere or worrying about quality.</p><p style="font-family:var(--head);font-size:20px;color:var(--green);border-left:4px solid var(--lime);padding-left:16px;margin:24px 0">We don’t just sell products. We find the ones that actually make your daily life easier — and bring them to you.</p><h2>What we offer</h2><ul><li><b>Kitchen &amp; home</b> — practical tools and accessories for smarter cooking and home life.</li><li><b>Daily gadgets</b> — carefully selected everyday gadgets that solve real problems.</li><li><b>Car accessories</b> — quality upgrades for your daily drive.</li></ul><h2>Our promise</h2>${perks}<p style="margin-top:20px"><a class="btn btn-w" href="${waLink('Hi TrueFinds!')}" target="_blank" rel="noopener">${ic('wa')} Chat with us on WhatsApp</a></p>`),
+contact:()=>wrap('Contact us',`<div class="cgrid"><a href="${waLink('Hi TrueFinds!')}" target="_blank" rel="noopener">${ic('wa')}<b>WhatsApp</b><span>Fastest · Mon–Sat, 9am to 9pm</span></a><a href="${CFG.IG}" target="_blank" rel="noopener">${ic('ig')}<b>Instagram</b><span>@truefinds_pk</span></a><a href="${CFG.FB}" target="_blank" rel="noopener">${ic('fb')}<b>Facebook</b><span>Message our page</span></a></div><h2>Send us a message</h2><form class="card" id="cf" novalidate style="max-width:620px"><div class="two"><div class="field"><label for="m-name">Name</label><input id="m-name" required></div><div class="field"><label for="m-phone">Phone number</label><input id="m-phone" type="tel"></div></div><div class="field"><label for="m-msg">How can we help?</label><textarea id="m-msg" rows="4" required></textarea></div><button class="btn btn-p" style="margin-top:18px" type="submit">Send on WhatsApp</button></form><h2>Common questions</h2>${faqHTML(FAQS.slice(0,4))}`,'We are here to help — reach out anytime and we will get back to you fast.'),
+faq:()=>wrap('Frequently asked questions',faqHTML(FAQS)+`<p style="margin-top:22px">Still have a question? <a class="link" href="#/contact">Contact us ${ic('arrow')}</a></p>`),
+shipping:()=>wrap('Shipping information',`<p>We deliver across Pakistan — wherever you are, we will get your order to you.</p><table class="tbl"><tr><th>City</th><th>Delivery time</th><th>Cost</th></tr><tr><td>Main cities</td><td>2–5 working days</td><td>Rs. 200</td></tr><tr><td>Other major cities</td><td>3–6 working days</td><td>Rs. 200</td></tr><tr><td>Remote areas</td><td>5–7 working days</td><td>Rs. 200 and depends</td></tr></table><h2>Free delivery</h2><p>Enjoy free delivery on qualifying orders over Rs. 3,000. It is applied automatically at checkout — no coupon needed.</p><h2>Order tracking</h2><p>Once your order is dispatched, you will receive a tracking number to follow your parcel with our courier partner.</p><h2>Payment methods</h2><ul><li>Cash on delivery (COD)</li><li>EasyPaisa and JazzCash</li><li>Bank transfer</li><li>Visa / Mastercard</li></ul>`),
+returns:()=>wrap('Returns & refunds',`<p>If you are not 100% happy with your order, contact us within <b>7 days</b> of receiving it and we will make it right — replacement or full refund.</p><h2>When can you return?</h2><ul><li>You received a damaged or defective product</li><li>The product is different from what was shown on the website</li><li>You received the wrong item</li><li>The product stops working within its guarantee timeline</li></ul><h2>How to return</h2><div class="steps"><div>WhatsApp us within 7 days of receiving your order.</div><div>Send a photo or video clearly showing the issue.</div><div>We confirm and arrange pickup from your address.</div><div>Receive your replacement or refund within 5–7 working days.</div></div><h2>Non-returnable items</h2><ul><li>Items returned after 7 days of delivery</li><li>Products that have been used, washed or damaged by the customer</li><li>Items without original packaging</li></ul><p style="margin-top:18px"><a class="btn btn-w" href="${waLink('Hi TrueFinds! I need help with a return.')}" target="_blank" rel="noopener">${ic('wa')} WhatsApp us</a></p>`),
+privacy:()=>wrap('Privacy policy',`<p>We collect only what we need to process your order: your name, phone number, delivery address and, optionally, your email. We use it to deliver your parcel, confirm your order and provide support.</p><p>We do not sell your personal information. We share delivery details only with our courier partners so your order can reach you.</p><p>Details you save on this website (cart, saved products, orders and checkout details) stay in your own browser on this device.</p><p>Questions about your data? <a class="link" href="#/contact">Contact us</a>.</p>`)
+};
+function p404(){document.title='Page not found — TrueFinds';return `<div class="container">${empty('We could not find that page','The link may be old or the product may have moved.',`<a class="btn btn-p" href="#/">Back to home</a>`)}</div>`}
+
+/* ---------- router ---------- */
+function route(){timers.forEach(clearInterval);timers=[];closeLayers();
+ const h=location.hash.replace(/^#\/?/,''),[r,...rest]=h.split('/'),arg=decodeURIComponent(rest.join('/')),name=r||'home',main=$('#main');let html,scrollTo=null;
+ const home=name==='home'||name==='categories'||name==='trending';
+ document.body.classList.toggle('is-home',home);document.body.classList.toggle('hero-top',home);document.body.classList.toggle('on-pdp',name==='product');
+ if(home){document.title='TrueFinds — Small Finds. Big Difference.';html=pHome();if(name!=='home')scrollTo=name}
+ else if(name==='collection')html=pCollection(arg||'all');
+ else if(name==='search')html=pSearch(arg);
+ else if(name==='product')html=pProduct(arg);
+ else if(name==='wishlist')html=pWishlist();
+ else if(name==='checkout')html=pCheckout();
+ else if(name==='order')html=pOrder(arg);
+ else if(name==='orders')html=pOrders();
+ else if(name==='account')html=pAccount();
+ else if(pages[name])html=pages[name]();
+ else html=p404();
+ main.innerHTML=html;
+ $$('.hero-d,.hero-m').forEach(slider);
+ if(name==='collection'&&COLS[arg||'all']){const base=inCol(COLS[arg||'all'].k);fillCollection(base);$('#f-sort').onchange=e=>{cf.sort=e.target.value;fillCollection(base)};$('#f-stock').onchange=e=>{cf.stock=e.target.checked;fillCollection(base)}}
+ $$('[data-nav]').forEach(a=>a.classList.toggle('on',a.dataset.nav===(name==='collection'?arg:name)));
+ $$('#mnav [data-m]').forEach(a=>a.classList.toggle('on',a.dataset.m===(name==='collection'?'categories':name)));
+ if(scrollTo){const el=$('#'+scrollTo);requestAnimationFrame(()=>el&&window.scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:'smooth'}))}
+ else window.scrollTo(0,0);
+ initReveal();onScroll()}
+
+/* ---------- interactions ---------- */
+document.addEventListener('click',e=>{const t=e.target.closest('[data-add],[data-wish],[data-open],[data-qty],[data-rm],[data-close],[data-thumb],[data-pdp-add],[data-buy],[data-rv]');if(!t)return;
+ if(t.dataset.add!==undefined){e.preventDefault();const p=pOf(t.dataset.add);const before=cart.find(x=>x.h===p.h)?.q||0;if(addCart(p.h)){const now=cart.find(x=>x.h===p.h).q;toast(before?`Added again — ${now} in your cart`:'Added to your cart',`<button data-open="cart">View cart</button>`)}}
+ else if(t.dataset.wish!==undefined){e.preventDefault();const h=t.dataset.wish;wish=wish.includes(h)?wish.filter(x=>x!==h):[...wish,h];store.set('tf_wish',wish);counts();$$(`[data-wish="${h}"]`).forEach(b=>{const on=wish.includes(h);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});toast(wish.includes(h)?'Saved to your wishlist':'Removed from saved',wish.includes(h)?`<a href="#/wishlist">View</a>`:'');if(location.hash.startsWith('#/wishlist'))route()}
+ else if(t.dataset.open!==undefined){e.preventDefault();renderCart();openLayer($('#cart-dr'))}
+ else if(t.dataset.qty!==undefined){const i=cart.find(x=>x.h===t.dataset.qty);i.q=Math.max(1,Math.min(20,i.q+ +t.dataset.d));saveCart();renderCart()}
+ else if(t.dataset.rm!==undefined){cart=cart.filter(x=>x.h!==t.dataset.rm);saveCart();renderCart()}
+ else if(t.dataset.close!==undefined){closeLayers()}
+ else if(t.dataset.rv!==undefined){const tr=$('#rvt');const cw=($('.rev',tr).offsetWidth||320)+16;tr.scrollBy({left:+t.dataset.rv*cw,behavior:'smooth'})}
+ else if(t.dataset.thumb!==undefined){$('#gmain').src=t.dataset.thumb;$$('.thumbs button').forEach(b=>b.classList.toggle('on',b===t))}
+ else if(t.dataset.pdpAdd!==undefined||t.dataset.buy!==undefined){const h=t.dataset.pdpAdd||t.dataset.buy,q=+($('#qv')?.textContent||1),n=$('#pnote')?.value.trim();if(addCart(h,q,n)){if(t.dataset.buy!==undefined)location.hash='#/checkout';else{renderCart();openLayer($('#cart-dr'))}}}
+});
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#/"]');if(a&&openEl&&!a.hasAttribute('data-open'))closeLayers();if(a&&a.getAttribute('href')===location.hash)route()});
+document.addEventListener('click',e=>{if(e.target.closest('#q-')){const v=$('#qv');v.textContent=Math.max(1,+v.textContent-1)}if(e.target.closest('#q\\+')){const v=$('#qv');v.textContent=Math.min(20,+v.textContent+1)}});
+document.addEventListener('change',e=>{if(e.target.name==='bill'){const b=$('#bill-f');if(b)b.hidden=e.target.value!=='diff'}});
+document.addEventListener('submit',e=>{const f=e.target;
+ if(f.id==='co'){e.preventDefault();placeOrder(f)}
+ else if(f.id==='nl'){e.preventDefault();const l=store.get('tf_news',[]);l.push(f.elements[0].value);store.set('tf_news',l);f.reset();toast('Thanks for subscribing!')}
+ else if(f.id==='acc'){e.preventDefault();store.set('tf_cust',Object.fromEntries([...new FormData(f)]));toast('Details saved')}
+ else if(f.id==='cf'){e.preventDefault();const n=$('#m-name').value.trim(),m=$('#m-msg').value.trim();if(!n||!m){toast('Please add your name and message');return}window.open(waLink(`Hi TrueFinds! I am ${n}${$('#m-phone').value?' ('+$('#m-phone').value+')':''}.\n${m}`),'_blank','noopener')}
+});
+$('#btn-cart').onclick=()=>{renderCart();openLayer($('#cart-dr'))};
+$('#btn-menu').onclick=()=>openLayer($('#mmenu'));
+const openSearch=()=>{$('#s-input').value='';sInit();openLayer($('#search'));setTimeout(()=>$('#s-input').focus(),250)};$('#btn-search').onclick=openSearch;document.addEventListener('click',e=>{if(e.target.closest('#m-search'))openSearch()});
+$('#s-close').onclick=closeLayers;
+const STOP=['and','for','the','with','set','pcs','piece','premium','luxury','large'];
+const VOC=(()=>{const m=new Map(),add=w=>{w=w.toLowerCase().replace(/[^a-z0-9]/g,'');if(w.length>=3&&!STOP.includes(w))m.set(w,(m.get(w)||0)+1)};PRODUCTS.forEach(p=>p.short.split(/\s+/).forEach(add));Object.values(LABEL).forEach(l=>l.split(/\s+/).forEach(add));return [...m.entries()].sort((a,b)=>b[1]-a[1]).map(x=>x[0])})();
+function suggest(q){const toks=q.toLowerCase().split(/\s+/).filter(Boolean),last=toks.pop()||'',pre=toks.join(' ');
+ const w=VOC.filter(x=>x.startsWith(last)&&x!==last).slice(0,5).map(x=>(pre?pre+' ':'')+x);
+ const ph=PRODUCTS.map(p=>p.short).filter(n=>n.toLowerCase().includes(q.toLowerCase())).slice(0,3);
+ return [...new Set([...w,...ph])].slice(0,6)}
+const hl=(t,q)=>{const i=t.toLowerCase().indexOf(q.toLowerCase());return i<0?esc(t):esc(t.slice(0,i))+'<b>'+esc(t.slice(i,i+q.length))+'</b>'+esc(t.slice(i+q.length))};
+const sRow=p=>`<a class="s-r" href="#/product/${p.h}"><img src="${imgU(p.f[0],120)}" alt=""><span>${esc(p.short)}</span><b>${money(p.p)}</b></a>`;
+function sInit(){$('#s-res').innerHTML=`<div class="s-h">POPULAR SEARCHES</div><div class="s-chips">${['Lamp','Organizer','Kitchen','Car','Kids','Cosmetic','Shelf'].map(x=>`<a class="chip" href="#/search/${x}">${x}</a>`).join('')}</div><div class="s-h">TRENDING NOW</div>${avail(inCol('bs')).slice(0,3).map(sRow).join('')}`}
+$('#s-input').oninput=e=>{const q=e.target.value.trim(),r=$('#s-res');if(!q){sInit();return}const l=doSearch(q),sg=suggest(q);
+ r.innerHTML=(sg.length?`<div class="s-h">SUGGESTIONS</div><div class="s-sug">${sg.map(x=>`<a href="#/search/${encodeURIComponent(x)}">${ic('search')}<span>${hl(x,q.split(/\s+/).pop()&&x.toLowerCase().includes(q.toLowerCase())?q:q.split(/\s+/).pop())}</span></a>`).join('')}</div>`:'')+
+ (l.length?`<div class="s-h">PRODUCTS</div>${l.slice(0,5).map(sRow).join('')}<p style="margin-top:14px"><a class="link" href="#/search/${encodeURIComponent(q)}">See all ${l.length} results ${ic('arrow')}</a></p>`:`<p style="color:var(--muted);margin-top:14px">No products match “${esc(q)}”. Try one of the suggestions.</p>`)};
+$('#s-input').onkeydown=e=>{if(e.key==='Enter'&&e.target.value.trim()){location.hash='#/search/'+encodeURIComponent(e.target.value.trim());closeLayers()}};
+sInit();
+
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;let io;
+function initReveal(){if(io)io.disconnect();if(RM||!('IntersectionObserver' in window))return;
+ io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -5% 0px'});
+ $$('.sec-head,.trust>div,.cat,.pc,.deco,.rv-sum,.rv-track,.band',$('#main')).forEach(el=>{if(el.classList.contains('in'))return;el.style.transitionDelay=([...el.parentElement.children].indexOf(el)%4)*90+'ms';el.classList.add('reveal');io.observe(el)})}
+/* header: transparent at top, solid when scrolled, hides on scroll down, returns on any scroll up */
+let lastY=0,tick=false;const head=$('#head');
+function onScroll(){const y=scrollY,hero=$('.hero'),half=hero?hero.offsetHeight/2:120;head.classList.toggle('at-top',y<8);head.classList.toggle('scrolled',y>=8);
+ let off=head.classList.contains('ann-off');
+ if(y<8)off=true;else if(y<half)off=false;else if(y<lastY-1)off=false;else if(y>lastY+1)off=true;
+ head.classList.toggle('ann-off',off);head.classList.remove('hide');lastY=y;tick=false;
+ $('#prog').style.width=(y/Math.max(1,document.documentElement.scrollHeight-innerHeight)*100)+'%';}
+addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+addEventListener('hashchange',route);
+buildChrome();renderCart();route();
+})();
+</script>
+</body>
+</html>
