@@ -6,12 +6,19 @@
 <meta name="theme-color" content="#faf6ea">
 <meta name="description" content="TrueFinds.pk — kitchen essentials, organizers, home decor, kids & baby care and everyday gadgets. Cash on delivery across Pakistan.">
 <title>TrueFinds — Small Finds. Big Difference.</title>
+
+<!-- Link Share Banner (Open Graph Tags) Yahan Add Karein -->
+<meta property="og:title" content="TrueFinds — Small Finds. Big Difference.">
+<meta property="og:description" content="Kitchen essentials, organizers, home decor, kids & baby care and everyday gadgets. Cash on delivery across Pakistan.">
+<meta property="og:image" content="https://truefinds.pk">
+<meta property="og:url" content="https://truefinds.pk">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://truefinds.pk">
+
 <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#faf6ea;--sand:#f1ecdc;--surface:#fff;--green:#0e4a38;--green2:#1d6a50;--lime:#8cc63f;--limeText:#587f1c;--limeSoft:#e9f3d3;--orange:#f08a1c;--ink:#14221c;--muted:#66736b;--line:#e4dfcd;--r:18px;--ann:34px;--nav:58px;--hh:calc(var(--ann) + var(--nav));--head:'Outfit',system-ui,sans-serif;--body:'DM Sans',system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -176,8 +183,6 @@ a.rev{color:inherit;transition:transform .3s,box-shadow .3s}a.rev:hover{transfor
 @media(max-width:1000px){.rv-page{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.rv-page{grid-template-columns:1fr}.rvp-head{padding:22px}}
 /* tech text */
-.cats{counter-reset:c}.cat{counter-increment:c}
-.cat::before{content:"0" counter(c);position:absolute;top:14px;left:14px;z-index:1;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;color:#fff;background:rgba(8,40,30,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:4px 10px;border-radius:20px;letter-spacing:.12em;border:1px solid rgba(255,255,255,.25)}
 /* alive: reveal, parallax, progress */
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -388,7 +393,7 @@ body.on-pdp{padding-bottom:calc(76px + env(safe-area-inset-bottom))}body.on-pdp 
       <div class="f-about"><a href="#/" class="logo" aria-label="TrueFinds home"><img src="images/truefinds-logo.png" alt="TrueFinds"></a>
         <p>Quality kitchen essentials, home decor, gadgets and everyday finds, delivered across Pakistan with care.</p>
         <div class="soc" id="soc"></div></div>
-      <div class="f-col"><h4>Shop</h4><a href="#/">Home</a><a href="#/collection/best-sellers">Best Sellers</a><a href="#/collection/kitchen-accessories">Kitchen Accessories</a><a href="#/collection/organizers">Organizers</a><a href="#/collection/home-decor">Home Decor</a><a href="#/collection/kids-and-baby-care">Kids &amp; Baby Care</a><a href="#/collection/personal-care">Personal Care</a><a href="#/collection/car-accessories">Car Accessories</a></div>
+      <div class="f-col"><h4>Shop</h4><a href="#/">Home</a><a href="#/collection/best-sellers">Best Sellers</a><a href="#/collection/kitchen-accessories">Kitchen Accessories</a><a href="#/collection/organizers">Organizers</a><a href="#/collection/home-decor">Home Decor</a><a href="#/collection/kids-and-baby-care">Kids &amp; Baby Care</a><a href="#/collection/personal-care">Personal Care</a><a href="#/collection/car-accessories">Car Accessories</a><a href="#/collection/stanley-tumblers">Stanley Tumblers</a></div>
       <div class="f-col"><h4>Help &amp; support</h4><a href="#/contact">Contact Us</a><a href="#/shipping">Shipping Information</a><a href="#/returns">Returns &amp; Refunds</a><a href="#/faq">FAQs</a><a href="#/about">About Us</a><a href="#/privacy">Privacy Policy</a></div>
       <div class="f-col"><h4>Your account</h4><a href="#/account">My Account</a><a href="#/orders">My Orders</a><a href="#/wishlist">Saved Products</a><a href="#" data-open="cart">Shopping Cart</a></div>
     </div>
@@ -423,10 +428,11 @@ const COLS={
  'kids-and-baby-care':{k:'b',n:'Kids & Baby Care',d:'Tableware, night lights and cosy things for little ones.',img:'images/cat-kids.jpg'},
  'personal-care':{k:'p',n:'Personal Care',d:'Daily rituals, made simpler.',img:'images/cat-personal-care.jpg'},
  'car-accessories':{k:'g',n:'Car Accessories',d:'Lights and locks to upgrade every drive.',img:'images/cat-car.jpg'},
+ 'stanley-tumblers':{k:'t',n:'Stanley Tumblers',d:'Big-sip tumblers with handle and straw.',img:'images/cat-tumblers.jpg'},
  'under-1000':{k:'u',n:'Under Rs. 1,000',d:'Pocket-friendly finds that still do the job.',img:'files/5in1VegetableCutterMultifunctionalgraterandcutter-MainPictures.jpg?v=1778611379'},
  'all':{k:'all',n:'All Products',d:'Everything we have found so far.',img:'collections/Test.jpg?v=1777835193'}
 };
-const LABEL={k:'Kitchen',o:'Organizers',h:'Home Decor',b:'Kids & Baby',p:'Personal Care',g:'Car Accessories'};
+const LABEL={t:'Stanley Tumblers',k:'Kitchen',o:'Organizers',h:'Home Decor',b:'Kids & Baby',p:'Personal Care',g:'Car Accessories'};
 // [handle, title, price, compare-at, [images], cols, flags('f'=from price,'x'=sold out), short description]
 const RAW=[
 ['car-led-ambient-light-premium-hanging-light-for-cozy-vibes','Car LED Ambient Light — Premium Hanging Light for Cozy Vibes',1999,2500,['WhatsApp_Image_2026-08-10_at_23.22.59.jpg?v=1786393503','WhatsApp_Image_2026-08-10_at_23.22.49.jpg?v=1786393505','CarLEDAmbientLight-PremiumHangingLightforCozyVibes.jpg?v=1779093592','WhatsApp_Image_2026-08-10_at_23.23.07.jpg?v=1786393505','WhatsApp_Image_2026-08-10_at_23.23.22.jpg?v=1786393505'],'g h bs','','A hanging LED ambient light that gives your car a cosy, glowing interior.'],
@@ -475,7 +481,12 @@ const RAW=[
 ['disney-mickey-friends-5-piece-kids-dinner-set-ceramic-plate-bowl-cup-spoon-chopsticks-gift-set','Disney Mickey & Friends 5-Piece Kids Dinner Set – Ceramic Plate, Bowl, Cup, Spoon & Chopsticks Gift Set',6900,8500,['disney-mickey-friends-5-piece-kids-dinner-set-ceramic-plate-bowl-cup-spoon-chopsticks-gift-set.webp?v=1777664461'],'b','',''],
 ['kids-plush-bunny-ear-muffs-soft-winter-ear-warmers-with-long-fluffy-hanging-straps','Kids Plush Bunny Ear Muffs – Soft Winter Ear Warmers with Long Fluffy Hanging Straps',1200,2500,['kids-plush-bunny-ear-muffs-soft-winter-ear-warmers-with-long-fluffy-hanging-straps.webp?v=1777664333'],'b','','Soft plush bunny ear muffs that keep little ears warm in winter.'],
 ['disney-mickey-minnie-donald-ceramic-bowl-set-premium-4-piece-cartoon-character-serving-bowls','Disney Mickey, Minnie & Donald Ceramic Bowl Set – Premium 4-Piece Cartoon Character Serving Bowls',5100,8999,['disney-mickey-minnie-donald-ceramic-bowl-set-premium-4-piece-cartoon-character-serving-bowls.webp?v=1777664158'],'b','',''],
-['kids-dream-castle-star-projector-night-lamp-with-bluetooth-luxury-bedtime-night-light','Kids Dream Castle Star Projector Night Lamp with Bluetooth – Luxury Bedtime Night Light',4300,5500,['kids-dream-castle-star-projector-night-lamp-with-bluetooth-luxury-bedtime-night-light.webp?v=1777663970'],'b','','A castle-shaped star projector night lamp with Bluetooth, made for bedtime.']
+['kids-dream-castle-star-projector-night-lamp-with-bluetooth-luxury-bedtime-night-light','Kids Dream Castle Star Projector Night Lamp with Bluetooth – Luxury Bedtime Night Light',4300,5500,['kids-dream-castle-star-projector-night-lamp-with-bluetooth-luxury-bedtime-night-light.webp?v=1777663970'],'b','','A castle-shaped star projector night lamp with Bluetooth, made for bedtime.'],
+// PLACEHOLDER products for the Stanley Tumblers category — replace with your real products, photos and prices
+['insulated-tumbler-40-oz-with-handle-and-straw','40 oz Insulated Tumbler – With Handle, Straw & Lid',4999,7500,['images/tumblers-all.jpg','images/tumbler-pink.jpg','images/tumbler-cream.jpg','images/tumbler-green.jpg'],'t','','A 40 oz tumbler with a handle, straw and lid. Placeholder listing.'],
+['insulated-tumbler-30-oz-with-handle-and-straw','30 oz Insulated Tumbler – With Handle, Straw & Lid',3999,6000,['images/tumblers-all.jpg','images/tumbler-cream.jpg','images/tumbler-green.jpg'],'t','','A 30 oz tumbler with a handle, straw and lid. Placeholder listing.'],
+['insulated-tumbler-20-oz-with-straw','20 oz Insulated Tumbler – With Straw & Lid',2999,4500,['images/tumblers-all.jpg','images/tumbler-pink.jpg'],'t','','A compact 20 oz tumbler with a straw and lid. Placeholder listing.'],
+['insulated-tumbler-twin-pack-30-oz','30 oz Insulated Tumbler Twin Pack – Two Tumblers with Straws',7499,10500,['images/tumblers-all.jpg','images/tumbler-green.jpg','images/tumbler-pink.jpg'],'t','','Two 30 oz tumblers with straws, great for gifting. Placeholder listing.']
 ];
 const PRODUCTS=RAW.map(([h,t,p,c,f,cols,fl,d])=>{const parts=t.split(/ [–—-] |: /);return{h,t,short:parts[0].trim(),tail:parts.slice(1).join(' — ').trim(),p,c:c>p?c:0,f,cols:cols.split(' '),from:fl.includes('f'),oos:fl.includes('x'),d}});
 const pOf=h=>PRODUCTS.find(p=>p.h===h);
@@ -541,7 +552,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLayers()});
 let tt;function toast(msg,action){const t=$('#toast');t.innerHTML=`<span>${esc(msg)}</span>${action||''}`;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),3200)}
 
 /* ---------- shared pieces ---------- */
-const priceHTML=p=>`<div class="price"><b>${p.from?'From ':''}${money(p.p)}</b>${p.c?`<s>${money(p.c)}</s><em>-${pc(p)}%</em>`:''}</div>`;
+const priceHTML=p=>`<div class="price"><b>${money(p.p)}</b>${p.c?`<s>${money(p.c)}</s><em>-${pc(p)}%</em>`:''}</div>`;
 function card(p){const on=wish.includes(p.h);return `<article class="pc"><div class="pc-media"><a href="#/product/${p.h}" aria-label="${esc(p.short)}"><img src="${imgU(p.f[0],600)}" alt="${esc(p.short)}" loading="lazy" width="600" height="600">${p.f[1]?`<img class="alt" src="${imgU(p.f[1],600)}" alt="" loading="lazy">`:''}</a>${p.oos?'<span class="tag out">Sold out</span>':p.c?`<span class="tag">-${pc(p)}%</span>`:''}<button class="wish ${on?'on':''}" data-wish="${p.h}" aria-label="${on?'Remove from':'Add to'} saved: ${esc(p.short)}" aria-pressed="${on}">${ic('heart')}</button><button class="qadd" data-add="${p.h}" aria-label="Add ${esc(p.short)} to cart" ${p.oos?'disabled':''}>${ic('bagPlus')}</button></div><div class="pc-info"><span class="pc-cat">${pCat(p)}</span><a href="#/product/${p.h}"><h3>${esc(p.short)}</h3></a><a class="pc-rate" href="#/reviews" aria-label="Rated ${rating(p)} out of 5, read reviews">${stars(5)}<span>${rating(p)}</span></a>${priceHTML(p)}</div></article>`}
 const grid=l=>`<div class="grid">${l.map(card).join('')}</div>`;
 const secHead=(t,d,href,lab='View all',kick)=>`<div class="sec-head"><div><h2>${t}</h2>${kick&&d?`<p>${d}</p>`:''}</div>${href?`<a class="link" href="${href}">${lab} ${ic('arrow')}</a>`:''}</div>`;
@@ -563,7 +574,7 @@ function buildChrome(){
  $('#s-ic').innerHTML=ic('search');$('#s-close').innerHTML=ic('close');
  $('#soc').innerHTML=`<a href="${CFG.IG}" target="_blank" rel="noopener" aria-label="Instagram">${ic('ig')}</a><a href="${CFG.FB}" target="_blank" rel="noopener" aria-label="Facebook">${ic('fb')}</a><a href="${waLink('Hi TrueFinds!')}" target="_blank" rel="noopener" aria-label="WhatsApp">${ic('wa')}</a>`;
  $('#mnav').innerHTML=`<a href="#/" data-m="home">${ic('home')}Home</a><a href="#/categories" data-m="categories">${ic('grid')}Shop</a><button class="srch" id="m-search" aria-label="Search products">${ic('search')}<span>Search</span></button><a href="#/wishlist" data-m="wishlist">${ic('heart')}Saved<span class="badge" id="b-wish2" data-n="0"></span></a><button data-open="cart" data-m="cart">${ic('bag')}Cart<span class="badge" id="b-cart2" data-n="0"></span></button>`;
- $('#mmenu').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><img src="images/truefinds-logo.png" alt="TrueFinds" style="height:38px"><button class="ib" data-close aria-label="Close menu">${ic('close')}</button></div><a href="#/account" style="display:flex;align-items:center;gap:10px;background:var(--limeSoft);border-radius:14px;padding:14px;border:0;margin-bottom:8px">${ic('user')} My Account</a><div style="height:10px"></div>${NAV.map(n=>`<a href="${n[1]}">${n[0]}</a>`).join('')}<a href="#/collection/best-sellers">Best Sellers</a><a href="#/collection/car-accessories">Car Accessories</a><div class="sm" style="margin-top:14px"><a href="#/about">About Us</a><a href="#/faq">FAQs</a><a href="#/shipping">Shipping</a><a href="#/returns">Returns</a><a href="${waLink('Hi TrueFinds!')}" target="_blank" rel="noopener">WhatsApp us</a></div>`;
+ $('#mmenu').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><img src="images/truefinds-logo.png" alt="TrueFinds" style="height:38px"><button class="ib" data-close aria-label="Close menu">${ic('close')}</button></div><a href="#/account" style="display:flex;align-items:center;gap:10px;background:var(--limeSoft);border-radius:14px;padding:14px;border:0;margin-bottom:8px">${ic('user')} My Account</a><div style="height:10px"></div>${NAV.map(n=>`<a href="${n[1]}">${n[0]}</a>`).join('')}<a href="#/collection/best-sellers">Best Sellers</a><a href="#/collection/car-accessories">Car Accessories</a><a href="#/collection/stanley-tumblers">Stanley Tumblers</a><div class="sm" style="margin-top:14px"><a href="#/about">About Us</a><a href="#/faq">FAQs</a><a href="#/shipping">Shipping</a><a href="#/returns">Returns</a><a href="${waLink('Hi TrueFinds!')}" target="_blank" rel="noopener">WhatsApp us</a></div>`;
 }
 function counts(){const q=cartQty(),w=wish.length;['b-cart','b-cart2'].forEach(i=>{const e=$('#'+i);if(e){e.textContent=q;e.dataset.n=q}});['b-wish','b-wish2'].forEach(i=>{const e=$('#'+i);if(e){e.textContent=w;e.dataset.n=w}})}
 
@@ -690,11 +701,11 @@ function pHome(){
  const bs=avail(inCol('bs')),hd=avail(inCol('h')).slice(0,4),pcare=avail(inCol('p')).slice(0,4),cheap=avail(inCol('u')).filter(p=>!p.oos).sort((a,b)=>a.p-b.p).slice(0,4);
  const cat=(slug,cls,sub,imgOverride)=>{const c=COLS[slug];return `<a class="cat ${cls}" href="#/collection/${slug}"><img src="${imgU(imgOverride||c.img,cls?1000:700)}" alt="${c.n}" loading="lazy"><div class="cat-t"><h3>${c.n}</h3><p>${sub}</p></div><span class="cat-go">${ic('arrow')}</span></a>`};
  return `<section class="hero" aria-label="Featured banners">
- <div class="hero-d"><div class="slides"><a class="slide" href="#/collection/best-sellers"><img src="images/banner-desktop.jpg" alt="TrueFinds — Small finds. Big difference. Useful products for a better home." width="1920" height="1081" fetchpriority="high"></a></div><div class="dots"></div></div>
- <div class="hero-m"><div class="slides"><a class="slide" href="#/collection/best-sellers"><img src="images/banner-mobile-1.jpg" alt="TrueFinds — Small finds. Big difference." width="900" height="1200" fetchpriority="high"></a><a class="slide" href="#/collection/kitchen-accessories"><img src="images/banner-mobile-2.jpg" alt="TrueFinds kitchen smart tools — Smarter tools, better cooking." width="900" height="1200"></a></div><div class="dots"></div></div></section>
+ <div class="hero-d"><div class="slides"><a class="slide" href="#/collection/all"><img src="images/banner-desktop.jpg" alt="TrueFinds — Small finds. Big difference. Useful products for a better home." width="1920" height="1081" fetchpriority="high"></a></div><div class="dots"></div></div>
+ <div class="hero-m"><div class="slides"><a class="slide" href="#/collection/all"><img src="images/banner-mobile-1.jpg" alt="TrueFinds — Small finds. Big difference." width="900" height="1200" fetchpriority="high"></a><a class="slide" href="#/collection/kitchen-accessories"><img src="images/banner-mobile-2.jpg" alt="TrueFinds kitchen smart tools — Smarter tools, better cooking." width="900" height="1200"></a><a class="slide" href="#/collection/best-sellers"><img src="images/banner-mobile-3.jpg" alt="TrueFinds — Smarter tech, better living." width="900" height="1200"></a></div><div class="dots"></div></div></section>
  <div class="container"><div class="trust"><div><span class="ico">${ic('cash')}</span><span>Cash on delivery<small>Pay when it arrives</small></span></div><div><span class="ico">${ic('truck')}</span><span>Free delivery over Rs. 3,000<small>Nationwide shipping</small></span></div><div><span class="ico">${ic('ret')}</span><span>7-day easy returns<small>Replacement or refund</small></span></div><div><span class="ico">${ic('shield')}</span><span>100% genuine<small>Quality-checked</small></span></div></div></div>
  <section class="section" id="categories"><div class="container">${secHead('Shop by category.','A little something for every corner of your life.','#/collection/all','Explore all','Find your kind of good')}
- <div class="cats">${cat('home-decor','lg','Make your space feel like you.')}${cat('kitchen-accessories','lg','Little helpers, big convenience.')}${cat('organizers','','')}${cat('car-accessories','','')}${cat('personal-care','','')}${cat('kids-and-baby-care','','')}</div></div></div></section>
+ <div class="cats">${cat('home-decor','lg','Make your space feel like you.')}${cat('kitchen-accessories','lg','Little helpers, big convenience.')}${cat('organizers','','')}${cat('stanley-tumblers','','')}${cat('personal-care','','')}${cat('kids-and-baby-care','','')}</div></div></div></section>
  <section class="section" id="trending"><div class="container">${secHead('Trending finds.','Our best sellers — handy things worth a closer look.','#/collection/best-sellers')}${grid(bs.slice(0,8))}</div></section>
  <section class="section" id="home-decor"><div class="container">${secHead('Home decor.','Warm lights and tidy touches for every room.','#/collection/home-decor')}${grid(hd)}</div></section>
  <section class="section" id="personal-care"><div class="container">${secHead('Personal care.','Small daily rituals, made easier.','#/collection/personal-care')}${grid(pcare)}</div></section>
@@ -738,7 +749,7 @@ function pProduct(h){const p=pOf(h);if(!p)return p404();document.title=p.short+'
  ${FAQS.slice(0,5).map(f=>`<details><summary>${f[0]}</summary><div class="a">${f[1]}</div></details>`).join('')}</div></div></div>
  ${rel.length?`<section class="section"><div class="container" style="width:100%">${secHead('You may also like.','',`#/collection/${slug}`,'See more')}${grid(rel)}</div></section>`:''}
  ${rv.length?`<section class="section"><div class="container" style="width:100%">${secHead('Recently viewed.','')}${grid(rv)}</div></section>`:''}</div>
- ${p.oos?'':`<div class="sticky-buy"><div class="price"><b>${p.from?'From ':''}${money(p.p)}</b></div><button class="btn btn-p" data-pdp-add="${h}">${ic('bagPlus')} Add to cart</button></div>`}`}
+ ${p.oos?'':`<div class="sticky-buy"><div class="price"><b>${money(p.p)}</b></div><button class="btn btn-p" data-pdp-add="${h}">${ic('bagPlus')} Add to cart</button></div>`}`}
 
 let rvShown=24;
 const moreHTML=()=>rvShown<REV.length?`<button class="btn btn-o" data-more>More reviews</button>`:`<div class="rv-end card"><h3>Want to see more?</h3><p>Sign up to view all reviews and share your own experience.</p><div><a class="btn btn-p" href="#/account">Sign up</a><a class="btn btn-o" href="#/collection/best-sellers">Keep shopping</a></div></div>`;
@@ -762,21 +773,24 @@ function pCheckout(){document.title='Checkout — TrueFinds';if(!cart.length)ret
  ${fld('c-phone','phone','Phone',c.phone,'Enter a valid mobile number, like 0300 1234567.','type="tel" inputmode="tel" autocomplete="tel" placeholder="03XX XXXXXXX"')}<p class="help">In case we need to contact you about your order</p>
  <label class="chk2"><input type="checkbox" name="save" checked> Save this information for next time</label></section>
  <section><h2>Shipping method</h2><div class="opt"><span><b>Standard Delivery</b><small>3 to 5 business days</small></span><b id="co-ship">${ship?money(ship):'Free'}</b></div></section>
- <section><h2>Payment</h2><p class="help" style="margin:-6px 0 12px">All transactions are secure and encrypted.</p><div class="pay">
+ <section><h2>Payment</h2><p class="help" style="margin:-6px 0 12px">Free delivery on online payment</p><div class="pay">
  <label><input type="radio" name="pay" value="Cash on Delivery (COD)" checked><span><b>Cash on Delivery (COD)</b></span></label><div class="pay-d">Pay in cash when your parcel arrives. Choose online payment instead to get free delivery.</div>
  <label><input type="radio" name="pay" value="EasyPaisa"><span><b>EasyPaisa</b></span></label><div class="pay-d">Send payment to EasyPaisa A/c:<br><b class="nw">0311-8376673</b><br>Account Title: <b>Sohaib Sohaib</b><br><br>After transfer, send screenshot on WhatsApp to confirm your order. Order processed after payment verification.</div>
  <label><input type="radio" name="pay" value="JazzCash"><span><b>JazzCash</b></span></label><div class="pay-d">Send payment to Jazz Cash A/c:<br><b class="nw">0307-9256266</b><br>Account Title: <b>Sohaib</b><br><br>After transfer, send screenshot on WhatsApp to confirm your order. Order processed after payment verification.</div></div></section>
  
+ <section><h2>Billing address</h2><div class="pay"><label><input type="radio" name="bill" value="same" checked><span><b>Same as shipping address</b></span></label><label><input type="radio" name="bill" value="diff"><span><b>Use a different billing address</b></span></label></div>
+ <div id="bill-f" hidden style="margin-top:12px">${fld('b-name','bname','Full name','','Please enter a name.')}${fld('b-addr','baddr','Address','','Please enter an address.')}${fld('b-city','bcity','City','','Please enter a city.')}</div></section>
  </div>
  <aside class="card" style="position:sticky;top:calc(var(--hh) + 16px)"><h2>Order summary</h2>${cart.map(i=>{const p=pOf(i.h);return `<div class="sum-i"><img src="${imgU(p.f[0],120)}" alt=""><span>${esc(p.short)}<small>Qty ${i.q}${i.note?' · '+esc(i.note):''}</small></span><b>${money(p.p*i.q)}</b></div>`}).join('')}
  <div class="row" style="margin-top:8px"><span>Subtotal</span><span>${money(sub)}</span></div><div class="row"><span>Shipping</span><span id="co-shr">${ship?money(ship):'Free'}</span></div><div class="row t"><span>Total</span><span id="co-tot">${money(sub+ship)}</span></div>
  <button class="btn btn-p" type="submit" style="width:100%;margin-top:16px">Complete order</button><p style="font-size:12px;color:var(--muted);text-align:center;margin-top:10px">By placing your order you agree to our <a href="#/returns" style="text-decoration:underline">returns policy</a>.</p></aside></form></div>`}
 function placeOrder(f){const v=n=>f.elements[n].value.trim(),bad=(id,t)=>{$('#'+id).closest('.field').classList.toggle('bad',t);return t};
- const ph=v('phone').replace(/[\s\-+]/g,'');let ok=true;
+ const ph=v('phone').replace(/[\s\-+]/g,''),diff=f.elements.bill.value==='diff';let ok=true;
  ok=!bad('c-name',v('name').length<3)&&ok;ok=!bad('c-phone',!/^(0|92)?3\d{9}$/.test(ph))&&ok;ok=!bad('c-city',v('city').length<2)&&ok;ok=!bad('c-addr',v('address').length<8)&&ok;ok=!bad('c-email',v('email')!==''&&!/^\S+@\S+\.\S+$/.test(v('email')))&&ok;
+ if(diff){ok=!bad('b-name',v('bname').length<3)&&ok;ok=!bad('b-addr',v('baddr').length<8)&&ok;ok=!bad('b-city',v('bcity').length<2)&&ok}
  if(!ok){const e=$('.field.bad input,.field.bad textarea');e&&e.focus();return}
  const sub=cartSub(),ship=shipFor(sub,f.elements.pay.value),addr=v('address')+(v('apt')?', '+v('apt'):'')+(v('zip')?' '+v('zip'):''),
- o={id:'TF-'+Date.now().toString(36).toUpperCase().slice(-6),date:new Date().toISOString(),items:cart.map(i=>{const p=pOf(i.h);return{h:i.h,name:p.short,price:p.p,q:i.q,note:i.note||''}}),sub,ship,total:sub+ship,pay:f.elements.pay.value,status:'Awaiting confirmation',cust:{name:v('name'),phone:v('phone'),city:v('city'),email:v('email'),address:addr,note:''}};
+ o={id:'TF-'+Date.now().toString(36).toUpperCase().slice(-6),date:new Date().toISOString(),items:cart.map(i=>{const p=pOf(i.h);return{h:i.h,name:p.short,price:p.p,q:i.q,note:i.note||''}}),sub,ship,total:sub+ship,pay:f.elements.pay.value,status:'Awaiting confirmation',cust:{name:v('name'),phone:v('phone'),city:v('city'),email:v('email'),address:addr,note:''},billing:diff?{name:v('bname'),address:v('baddr'),city:v('bcity')}:null};
  orders=[o,...orders];store.set('tf_orders',orders);
  if(f.elements.save.checked)store.set('tf_cust',{name:o.cust.name,phone:o.cust.phone,city:o.cust.city,email:o.cust.email,address:v('address'),apt:v('apt'),zip:v('zip')});
  if(CFG.ORDER_ENDPOINT)fetch(CFG.ORDER_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)}).catch(()=>{});
@@ -844,7 +858,7 @@ document.addEventListener('click',e=>{const t=e.target.closest('[data-add],[data
 });
 document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#/"]');if(a&&openEl&&!a.hasAttribute('data-open'))closeLayers();if(a&&a.getAttribute('href')===location.hash)route()});
 document.addEventListener('click',e=>{if(e.target.closest('#q-')){const v=$('#qv');v.textContent=Math.max(1,+v.textContent-1)}if(e.target.closest('#q\\+')){const v=$('#qv');v.textContent=Math.min(20,+v.textContent+1)}});
-document.addEventListener('change',e=>{if(e.target.name==='pay'&&$('#co-tot')){const sub=cartSub(),sh=shipFor(sub,e.target.value);$('#co-ship').textContent=sh?money(sh):'Free';$('#co-shr').textContent=sh?money(sh):'Free';$('#co-tot').textContent=money(sub+sh)}});
+document.addEventListener('change',e=>{if(e.target.name==='bill'){const b=$('#bill-f');if(b)b.hidden=e.target.value!=='diff'}if(e.target.name==='pay'&&$('#co-tot')){const sub=cartSub(),sh=shipFor(sub,e.target.value);$('#co-ship').textContent=sh?money(sh):'Free';$('#co-shr').textContent=sh?money(sh):'Free';$('#co-tot').textContent=money(sub+sh)}});
 document.addEventListener('submit',e=>{const f=e.target;
  if(f.id==='co'){e.preventDefault();placeOrder(f)}
  else if(f.id==='nl'){e.preventDefault();const l=store.get('tf_news',[]);l.push(f.elements[0].value);store.set('tf_news',l);f.reset();toast('Thanks for subscribing!')}
